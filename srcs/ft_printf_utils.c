@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/04/26 19:11:40 by becastro         ###   ########.fr       */
+/*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
+/*   Updated: 2022/04/26 19:01:21 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/printf.h"
+#include "../includes/printf.h"
 
-int ft_printf(char *str, ...);
-
-int	main(void)
+void ft_putchar(unsigned char c)
 {
-	ft_printf("hello %d");
-	//printf("%+d", 123);
+	write(1, &c, 1);
+}
+
+void ft_putstr(const char* s)
+{
+	write(1, s, ft_strlen(s));
 }

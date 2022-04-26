@@ -6,7 +6,7 @@
 #    By: becastro <becastro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 09:47:22 by becastro          #+#    #+#              #
-#    Updated: 2022/04/26 15:22:00 by becastro         ###   ########.fr        #
+#    Updated: 2022/04/26 18:45:59 by becastro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_DIR = obj/
 FT = ft_
 
 #files
-SRC_FILES = printf
+SRC_FILES = printf printf_utils is_arg
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
