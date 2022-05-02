@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/04/30 16:36:21 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/02 08:51:49 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/printf.h"
 
-int	ft_printf(char *str, ...);
 
 int	main(void)
 {
 
-	ft_printf("world%                      xhello %d");
-	// printf("%           d", 123);
+	printf("hello %.006d", 123);
 	return (0);
 }

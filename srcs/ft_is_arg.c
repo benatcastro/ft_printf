@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:46:34 by becastro          #+#    #+#             */
-/*   Updated: 2022/04/30 16:35:11 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/02 08:40:33 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_is_arg(const char *s)
 {
 	char	*types;
 	int		sizeof_arg;
-	//printf("\nargto check: %s\n", s);
+
 	types = "cspdiuxX%";
 	sizeof_arg = 0;
 	while (*s)
@@ -26,18 +26,11 @@ int	ft_is_arg(const char *s)
 			s++;
 			sizeof_arg++;
 		}
-		//printf("checking char: %c\n", *s);
 		if (is_in_types(*s, types) == 1)
 		{
 			ft_putstr("ARG");
-			return (sizeof_arg);
+			return (sizeof_arg + 1);
 		}
-		else
-		{
-			ft_putstr("INVALID ARG");
-			return (0);
-		}
-		s++;
 	}
 	return (0);
 }
