@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/02 08:39:56 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/02 13:02:20 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int	ft_printf(char *str, ...)
 	i = -1;
 	while (str[++i] != '\0')
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && ft_is_arg (&str[i + 1]) != -1)
 		{
+			// printf("arg value: %d\n", ft_is_arg (&str[i + 1]));
 			i += ft_is_arg (&str[i + 1]);
 		}
 		else

@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_arg.c                                        :+:      :+:    :+:   */
+/*   ft_getflags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 18:46:34 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/02 13:14:01 by bena             ###   ########.fr       */
+/*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
+/*   Updated: 2022/05/02 13:12:28 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	ft_is_arg(const char *s)
+t_args	*ft_getflags(char *arg)
 {
-	int		sizeof_arg;
 	size_t	i;
+	t_args	*lstargs;
 
+	lstargs = malloc(sizeof(t_args));
 	i = 0;
-	sizeof_arg = 0;
-	while (s[i++])
+	while (arg[i++])
 	{
-		while (s[i] == ' ' && *s)
-			sizeof_arg++;
-		if (is_in_types(*s) == 1)
+		if (is_in_types())
 		{
-			return (sizeof_arg + 1);
+			/* code */
 		}
+		/* code */
 	}
-	return (-1);
-}
-
-int	is_in_types(char s)
-{
-	char	*types;
-
-	types = "cspdiuxX%";
-	while (*types)
-	{
-		if (*types == s)
-			return (1);
-		types++;
-	}
-	return (0);
+	return (lstargs);
 }
