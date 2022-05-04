@@ -6,18 +6,16 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/02 14:48:40 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 01:23:35 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-t_args	*ft_getflags(char *arg)
+t_args	*ft_getflags(char *arg, t_args *lstargs)
 {
 	size_t	i;
-	t_args	*lstargs;
 
-	lstargs = malloc(sizeof(t_args));
 	i = -1;
 	while (arg[i++])
 	{

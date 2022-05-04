@@ -6,20 +6,28 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/02 14:54:41 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 02:57:19 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	ft_print_argument(t_args *lstargs, va_list argptr)
+void	d(t_args *lstargs)
 {
-	//printf("\nPrefix: (%c)\nType: %c\nArgptr: %p", lstargs->prefix, lstargs->type, argptr);
-
-	return (0);
+	printf("%d", va_arg(lstargs->argument, int));
+	// ft_putstr(ft_itoa(va_arg(lstargs->argument, int)));
 }
 
-int	d(void)
+void	s(t_args *lstargs)
 {
-	ft_putstr("\ntest\n")
+	char	*s;
+
+	s = lstargs->test;
+	ft_putstr(s);
+}
+
+int	ft_print_argument(t_args *lstargs)
+{
+	ft_call(ft_getfnc(lstargs->type), lstargs);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/02 13:57:21 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 02:24:06 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ int	ft_printf(char *str, ...)
 {
 	size_t	i;
 	va_list	argptr;
+	t_args	*lstargs;
 
-	va_start(argptr, str);
+	lstargs = malloc(sizeof(t_args));
+	va_start(lstargs->argument, str);
 	i = -1;
 	while (str[++i] != '\0')
 	{
-		// ft_putchar(str[i]);
-		// ft_putchar('\n');
 		if (str[i] == '%' && ft_is_arg (&str[i + 1]) != -1)
 		{
-			// printf("arg value: %d\n", ft_is_arg (&str[i + 1]));
-			ft_print_argument(ft_getflags(&str[i + 1]), argptr);
+			ft_print_argument(ft_getflags(&str[i + 1], lstargs));
 			i += ft_is_arg (&str[i + 1]);
 		}
 		else

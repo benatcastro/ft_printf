@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/02 14:07:49 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 02:37:55 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,17 @@ void	ft_putstr(const char *s)
 	}
 	//write(1, &s, ft_strlen(s));
 }
+
+void	*ft_getfnc(char c)
+{
+	if (c == 'd')
+		return (&d);
+	else
+		return (0);
+}
+
+void	ft_call(void (*f)(t_args), t_args *lstargs)
+{
+	(*f)(*lstargs);
+}
+
