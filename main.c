@@ -3,26 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/04 03:02:26 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 15:21:56by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/printf.h"
 
-void	ft_testcall(void (*f)(t_args), t_args lstargs)
-{
-	(*f)(lstargs);
-}
 
 int	main(void)
 {
-	t_args	*lstargs;
+	int	i;
 
-	lstargs = malloc(sizeof(lstargs));
-	lstargs->test = "hello";
-	ft_testcall(&d, *lstargs);
-	//ft_printf("hello %      d world %          d\n", 123, 321);
+	printf("my printf\n");
+	i = ft_printf("hello, %+d\n", 123);
+	printf("my return: %d", i);
+	i = printf("hello, %06d\n", 123);
+	printf("Og return: %d", i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/04 02:24:06 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 15:05:03 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_printf(char *str, ...)
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_putchar(str[i], lstargs);
 		}
 	}
 	va_end(argptr);
-	return (1);
+	return (lstargs->args_size);
 }

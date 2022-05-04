@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:46:34 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/02 14:05:06 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 14:24:49 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ int	ft_is_arg(const char *s)
 		while ((s[i] == ' ' && *s) || is_in_flags(s[i]) == 0)
 		{
 			i++;
-			//printf("(%c)\n", s[i]);
 			sizeof_arg++;
 		}
 		if (is_in_types(*s))
 		{
-			//printf("exit\n");
 			return (sizeof_arg + 1);
 		}
 	}

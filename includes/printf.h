@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/04 02:57:01 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/04 15:03:28 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct t_args
 	char			type;
 	char			prefix;
 	va_list			argument;
-	char			*test;
+	int				args_size;
 	struct t_args	*next;
 }	t_args;
 
@@ -31,14 +31,14 @@ typedef struct t_args
 void	s(t_args *lstargs);
 void	d(t_args *lstargs);
 //other fncs
-void	*ft_getfnc(char c);
-void	ft_call(void (*f)(t_args), t_args *lstargs);
+void	*ft_getfnc(t_args *lstargs);
+void	ft_call(void (*f)(t_args*), t_args *lstargs);
 int		is_in_flags(char c);
 int		ft_print_argument(t_args *lstargs);
 t_args	*ft_getflags(char *arg, t_args *lstargs);
 int		is_in_types(char s);
 int		ft_is_arg(const char *s);
-void	ft_putchar(unsigned char c);
-void	ft_putstr(const char *s);
+void	ft_putchar(unsigned char c, t_args *lstargs);
+void	ft_putstr(const char *s, t_args *lstargs);
 int		ft_printf(char *str, ...);
 #endif //
