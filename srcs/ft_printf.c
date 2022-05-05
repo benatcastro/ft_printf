@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/04 15:05:03 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:09:54 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_printf(char *str, ...)
 	i = -1;
 	while (str[++i] != '\0')
 	{
-		if (str[i] == '%' && ft_is_arg (&str[i + 1]) != -1)
+		if (str[i] == '%' && ft_is_arg (&str[i + 1]))
 		{
 			ft_print_argument(ft_getflags(&str[i + 1], lstargs));
 			i += ft_is_arg (&str[i + 1]);
@@ -34,5 +34,6 @@ int	ft_printf(char *str, ...)
 		}
 	}
 	va_end(argptr);
+	free(lstargs);
 	return (lstargs->args_size);
 }

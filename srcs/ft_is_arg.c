@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:46:34 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/04 14:24:49 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:28:38 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,15 @@ int	ft_is_arg(const char *s)
 	sizeof_arg = 0;
 	while (s[i++])
 	{
-		while ((s[i] == ' ' && *s) || is_in_flags(s[i]) == 0)
-		{
-			i++;
+		if (is_in_precision(s[i] || is_in_precision(s[i])))
 			sizeof_arg++;
-		}
-		if (is_in_types(*s))
+		if (!is_in_types(s[i]))
 		{
-			return (sizeof_arg + 1);
+			sizeof_arg++;
+			return (sizeof_arg - 1);
 		}
 	}
-	return (-1);
+	return (0);
 }
 
 int	is_in_types(char c)
@@ -48,11 +46,25 @@ int	is_in_types(char c)
 	return (1);
 }
 
-int	is_in_flags(char c)
+int	is_in_prefix(char c)
 {
 	char	*flags;
 
-	flags = "-0.#+ ";
+	flags = "#+ ";
+	while (*flags)
+	{
+		if (*flags == c)
+			return (0);
+		flags++;
+	}
+	return (1);
+}
+
+int	is_in_precision(char c)
+{
+	char	*flags;
+
+	flags = "-0.";
 	while (*flags)
 	{
 		if (*flags == c)

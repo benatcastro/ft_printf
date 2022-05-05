@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/04 15:04:43 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/05 19:00:42 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	d(t_args *lstargs)
 {
-	int	nbr;
+	int		nbr;
+	char	*str;
 
 	nbr = va_arg(lstargs->argument, int);
+	str = ft_itoa(nbr);
 	if (lstargs->prefix == ' ')
 	{
 		ft_putchar(' ', lstargs);
@@ -25,7 +27,9 @@ void	d(t_args *lstargs)
 	{
 		ft_putchar('+', lstargs);
 	}
-	ft_putstr(ft_itoa(nbr), lstargs);
+
+	ft_putstr(str, lstargs);
+	free(str);
 }
 
 void	s(t_args *lstargs)
@@ -40,8 +44,15 @@ void	s(t_args *lstargs)
 	lstargs->args_size += printed;
 }
 
+
+void	test(t_args *lstargs)
+{
+	printf("\nType: (%c)\nPrefix (%c)\nPre_Type(%c)\nPre_size (%c)\n", lstargs->type, lstargs->prefix, lstargs->precision_type, lstargs->precision_size);
+}
+
+
 int	ft_print_argument(t_args *lstargs)
 {
-	ft_call(ft_getfnc(lstargs), lstargs);
+	ft_call(test, lstargs);
 	return (0);
 }
