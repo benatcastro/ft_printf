@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 20:05:43 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 21:08:46 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct t_args
 {
 	char			*arg;
+	int				arg_len;
 	char			type;
 	char			prefix;
 	char			precision_type;
@@ -34,6 +35,7 @@ typedef struct t_args
 //prints
 void	s(t_args *lstargs);
 void	d(t_args *lstargs);
+void	ft_print_precision(t_args *lstargs);
 //other fncs
 void	*ft_getfnc(t_args *lstargs);
 void	ft_call(void (*f)(t_args*), t_args *lstargs);

@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 20:24:57 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 21:19:52 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_printf(char *str, ...)
 {
 	size_t	i;
-	va_list	argptr;
 	t_args	*lstargs;
 	char	*arg;
 
@@ -35,7 +34,7 @@ int	ft_printf(char *str, ...)
 		else
 			ft_putchar(str[i], lstargs);
 	}
-	va_end(argptr);
+	va_end(lstargs->variatic_arg);
 	free(lstargs);
 	return (lstargs->args_size);
 }

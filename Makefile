@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: becastro <becastro@student.42.fr>          +#+  +:+       +#+         #
+#    By: bena <bena@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 09:47:22 by becastro          #+#    #+#              #
-#    Updated: 2022/05/05 16:55:17 by becastro         ###   ########.fr        #
+#    Updated: 2022/05/06 20:57:32 by bena             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_DIR = obj/
 FT = ft_
 
 #files
-SRC_FILES = printf printf_utils is_arg print_args getflags
+SRC_FILES = printf printf_utils is_arg print_args getflags print_precision
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

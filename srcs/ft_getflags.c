@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/06 20:02:31 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 21:16:08 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,37 @@ void	ft_get_precision(t_args *lstargs, char *arg)
 	size_t	i;
 
 	i = -1;
-	while (arg[i++] && !ft_isdigit(arg[i]))
+
+	while (lstargs->arg[++i] && (!ft_isdigit(lstargs->arg[i]
+				|| lstargs->arg[i] == '0')))
 	{
 		if (arg[i] == '-')
+		{
 			lstargs->precision_type = '-';
+			break ;
+		}
 		else if (arg[i] && lstargs->precision_type != '-')
+		{
 			lstargs->precision_type = '0';
+			break ;
+		}
 	}
+	ft_get_precision_size(lstargs, &lstargs->arg[i + 1]);
 }
 
 void	ft_get_precision_size(t_args *lstargs, char *str)
 {
-	(void)lstargs;
-	(void)str;
-// 			while (arg[j] && ft_isdigit(arg [j]))
-// 				j++;
-// 			if (!is_in_types(arg[j]))
-// 				lstargs->valid_arg = 1;
-// 			else
-// 				lstargs->valid_arg = 0;
+	size_t	i;
+	char	*size_c;
 
-// 			size_c = ft_substr(&arg[i], 0, j - i);
-// 			lstargs->precision_size = ft_atoi(size_c);
-// 			free(size_c);
+	i = 0;
+	while (str[i] && ft_isdigit(str [i]))
+		i++;
+	if (!is_in_types(str[i]))
+		lstargs->valid_arg = 1;
+	else
+		lstargs->valid_arg = 0;
+	size_c = ft_substr(str, 0, i);
+	lstargs->precision_size = ft_atoi(size_c);
+	free(size_c);
 }

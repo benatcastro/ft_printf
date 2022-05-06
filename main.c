@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 20:00:54 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 21:32:41 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main(void)
 	int	i;
 
 	///printf("my printf\n");
-	i = ft_printf("hello, %#06d test, % s\n", 123, "hola");
-	printf("hello,%.5d test\n", 123);
+	i = ft_printf("my printf, %06d test\n", 123);
+	printf("original,%06d test\n", 123);
 	//printf("my return: %d", i);
 	//i = ft_printf("hello, %s\n", "HOplah sadjkhfg fg kjghfg  kajhdsf gFGH KSAD KajsdhffdgghfkJHAFGDS");
 	//i = ft_printf("hello, %d\n", -123);
