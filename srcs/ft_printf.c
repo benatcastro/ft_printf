@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/05 18:09:54 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/06 20:24:57 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,23 @@ int	ft_printf(char *str, ...)
 	size_t	i;
 	va_list	argptr;
 	t_args	*lstargs;
+	char	*arg;
 
 	lstargs = malloc(sizeof(t_args));
-	va_start(lstargs->argument, str);
+	va_start(lstargs->variatic_arg, str);
 	i = -1;
 	while (str[++i] != '\0')
 	{
-		if (str[i] == '%' && ft_is_arg (&str[i + 1]))
+		if (str[i] == '%')
 		{
-			ft_print_argument(ft_getflags(&str[i + 1], lstargs));
+			arg = ft_trim_arg(&str[i + 1]);
+			lstargs->arg = arg;
+			ft_print_argument(ft_getflags(lstargs));
 			i += ft_is_arg (&str[i + 1]);
+			free(arg);
 		}
 		else
-		{
 			ft_putchar(str[i], lstargs);
-		}
 	}
 	va_end(argptr);
 	free(lstargs);

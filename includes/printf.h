@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 19:13:00 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 20:05:43 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@
 
 typedef struct t_args
 {
+	char			*arg;
 	char			type;
 	char			prefix;
 	char			precision_type;
 	int				precision_size;
-	va_list			argument;
+	va_list			variatic_arg;
 	int				args_size;
 	int				valid_arg;
 	struct t_args	*next;
@@ -38,7 +39,7 @@ void	*ft_getfnc(t_args *lstargs);
 void	ft_call(void (*f)(t_args*), t_args *lstargs);
 int		ft_print_argument(t_args *lstargs);
 //getting flags
-t_args	*ft_getflags(char *arg, t_args *lstargs);
+t_args	*ft_getflags(t_args *lstargs);
 int		is_in_types(char s);
 int		ft_is_arg(const char *s);
 void	ft_get_prefix(t_args *lstargs, char c);
@@ -51,4 +52,6 @@ int		is_in_precision(char c);
 void	ft_putchar(unsigned char c, t_args *lstargs);
 void	ft_putstr(const char *s, t_args *lstargs);
 int		ft_printf(char *str, ...);
+char	*ft_trim_arg(char *str);
+void	ft_reset_list(t_args *lstargs);
 #endif //

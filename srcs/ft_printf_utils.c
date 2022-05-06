@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/04 15:28:23 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/06 20:19:33 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,24 @@ void	*ft_getfnc(t_args *lstargs)
 void	ft_call(void (*f)(t_args*), t_args *lstargs)
 {
 	f(lstargs);
+}
+
+char	*ft_trim_arg(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] && is_in_types(str[i]))
+		i++;
+	return (ft_substr(str, 0, i + 1));
+}
+
+void	ft_reset_list(t_args *lstargs)
+{
+	lstargs->arg = 0;
+	lstargs->type = 0;
+	lstargs->prefix = 0;
+	lstargs->precision_type = 0;
+	lstargs->precision_size = 0;
+	lstargs->valid_arg = 0;
 }

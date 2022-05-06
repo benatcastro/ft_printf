@@ -6,30 +6,32 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/06 19:15:11 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 20:02:31 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-t_args	*ft_getflags(char *arg, t_args *lstargs)
+t_args	*ft_getflags(t_args *lstargs)
 {
 	size_t	i;
 
 	i = -1;
-	while (arg[i++])
+	//printf("TEST:%s\n", lstargs->arg);
+
+	while (lstargs->arg[++i])
 	{
-		if (!is_in_prefix(arg[i]))
-			ft_get_prefix(lstargs, arg[i]);
-		else if (!is_in_precision(arg[i]))
-			ft_get_precision(lstargs, &arg[i]);
-		else if (!is_in_types(arg[i]))
+		if (!is_in_prefix(lstargs->arg[i]))
+			ft_get_prefix(lstargs, lstargs->arg[i]);
+		else if (!is_in_precision(lstargs->arg[i]))
+			ft_get_precision(lstargs, &lstargs->arg[i]);
+		else if (!is_in_types(lstargs->arg[i]))
 		{
-			lstargs->type = arg[i];
-			//printf("precision arg: %s", arg);
+			lstargs->type = lstargs->arg[i];
 			break ;
 		}
 	}
+
 	return (lstargs);
 }
 
@@ -54,7 +56,6 @@ void	ft_get_precision(t_args *lstargs, char *arg)
 		else if (arg[i] && lstargs->precision_type != '-')
 			lstargs->precision_type = '0';
 	}
-	printf("ARG TEST: %s\n", &arg[i++]);
 }
 
 void	ft_get_precision_size(t_args *lstargs, char *str)

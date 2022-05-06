@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/06 19:12:31 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/06 20:07:42 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	d(t_args *lstargs)
 	int		nbr;
 	char	*str;
 
-	nbr = va_arg(lstargs->argument, int);
+	nbr = va_arg(lstargs->variatic_arg, int);
 	str = ft_itoa(nbr);
 	if (lstargs->prefix == ' ')
 	{
@@ -38,7 +38,7 @@ void	s(t_args *lstargs)
 	char	*s;
 
 
-	s = va_arg(lstargs->argument, char *);
+	s = va_arg(lstargs->variatic_arg, char *);
 	printed = ft_strlen(s);
 	ft_putstr(s, lstargs);
 	lstargs->args_size += printed;
@@ -53,6 +53,7 @@ void	test(t_args *lstargs)
 		lstargs->precision_type,
 		lstargs->precision_size,
 		lstargs->valid_arg);
+	ft_reset_list(lstargs);
 }
 
 
