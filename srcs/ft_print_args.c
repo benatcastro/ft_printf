@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/05 19:00:42 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:12:31 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,12 @@ void	s(t_args *lstargs)
 
 void	test(t_args *lstargs)
 {
-	printf("\nType: (%c)\nPrefix (%c)\nPre_Type(%c)\nPre_size (%c)\n", lstargs->type, lstargs->prefix, lstargs->precision_type, lstargs->precision_size);
+	printf("\nType: (%c)\nPrefix (%c)\nPre_Type(%c)\nPre_size (%d)\nValid (%d)\n",
+		lstargs->type,
+		lstargs->prefix,
+		lstargs->precision_type,
+		lstargs->precision_size,
+		lstargs->valid_arg);
 }
 
 

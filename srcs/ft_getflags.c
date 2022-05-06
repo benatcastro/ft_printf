@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getflags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/05 19:18:20 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:15:11 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,30 @@ void	ft_get_prefix(t_args *lstargs, char c)
 void	ft_get_precision(t_args *lstargs, char *arg)
 {
 	size_t	i;
-	size_t	j;
 
 	i = -1;
-	while (arg[i++])
+	while (arg[i++] && !ft_isdigit(arg[i]))
 	{
-		if (arg[i] == '0')
-		{
+		if (arg[i] == '-')
+			lstargs->precision_type = '-';
+		else if (arg[i] && lstargs->precision_type != '-')
 			lstargs->precision_type = '0';
-			i++;
-			j = i;
-			while (arg[j] && ft_isdigit(arg [j]))
-			{
-				j++;
-			}
-			printf("atoi: %d\n") ft_atoi(ft_substr(&arg[i], 0, j - i));
-		}
 	}
+	printf("ARG TEST: %s\n", &arg[i++]);
+}
+
+void	ft_get_precision_size(t_args *lstargs, char *str)
+{
+	(void)lstargs;
+	(void)str;
+// 			while (arg[j] && ft_isdigit(arg [j]))
+// 				j++;
+// 			if (!is_in_types(arg[j]))
+// 				lstargs->valid_arg = 1;
+// 			else
+// 				lstargs->valid_arg = 0;
+
+// 			size_c = ft_substr(&arg[i], 0, j - i);
+// 			lstargs->precision_size = ft_atoi(size_c);
+// 			free(size_c);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/05 19:16:39 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:13:00 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct t_args
 	int				precision_size;
 	va_list			argument;
 	int				args_size;
+	int				valid_arg;
 	struct t_args	*next;
 }	t_args;
 
@@ -42,6 +43,7 @@ int		is_in_types(char s);
 int		ft_is_arg(const char *s);
 void	ft_get_prefix(t_args *lstargs, char c);
 void	ft_get_precision(t_args *lstargs, char *arg);
+void	ft_get_precision_size(t_args *lstargs, char *str);
 //checking flags
 int		is_in_prefix(char c);
 int		is_in_precision(char c);
