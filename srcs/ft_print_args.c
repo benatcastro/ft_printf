@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/06 21:28:41 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/07 18:12:31 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,12 @@
 
 void	d(t_args *lstargs)
 {
-	int		nbr;
-	char	*str;
+	int	nbr;
 
 	nbr = va_arg(lstargs->variatic_arg, int);
-	lstargs->arg_len = ft_intlen(nbr);
-	str = ft_itoa(nbr);
-	if (lstargs->prefix == ' ')
-		ft_putchar(' ', lstargs);
-	else if (lstargs->prefix == '+' && nbr >= 0)
-		ft_putchar('+', lstargs);
-	ft_print_precision(lstargs);
-	ft_putstr(str, lstargs);
-	free(str);
+	lstargs->printable_arg = ft_itoa(nbr);
 }
+
 
 void	s(t_args *lstargs)
 {
@@ -57,6 +49,11 @@ void	test(t_args *lstargs)
 int	ft_print_argument(t_args *lstargs)
 {
 	//ft_call(test, lstargs);
-	ft_call(d, lstargs);
+	ft_call(ft_getfnc(lstargs), lstargs);
+	ft_print_prefix(lstargs);
+	ft_print_precision(lstargs);
+	ft_putstr(lstargs->printable_arg, lstargs);
+	//ft_call(test, lstargs);
+	ft_reset_list(lstargs);
 	return (0);
 }

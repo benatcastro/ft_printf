@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 21:19:52 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/07 17:44:30 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_printf(char *str, ...)
 		{
 			arg = ft_trim_arg(&str[i + 1]);
 			lstargs->arg = arg;
+
 			ft_print_argument(ft_getflags(lstargs));
 			i += ft_is_arg (&str[i + 1]);
 			free(arg);

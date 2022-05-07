@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 21:25:14 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/07 17:39:20 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_putstr(const char *s, t_args *lstargs)
 
 void	*ft_getfnc(t_args *lstargs)
 {
+
 	if (lstargs->type == 'd')
 		return (&d);
 	if (lstargs->type == 's')
@@ -62,4 +63,5 @@ void	ft_reset_list(t_args *lstargs)
 	lstargs->precision_type = 0;
 	lstargs->precision_size = 0;
 	lstargs->valid_arg = 0;
+	free(lstargs->printable_arg);
 }

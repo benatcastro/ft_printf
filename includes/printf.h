@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/06 21:08:46 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/07 17:52:43 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct t_args
 {
 	char			*arg;
+	char			*printable_arg;
 	int				arg_len;
 	char			type;
 	char			prefix;
@@ -29,13 +30,13 @@ typedef struct t_args
 	va_list			variatic_arg;
 	int				args_size;
 	int				valid_arg;
-	struct t_args	*next;
 }	t_args;
 
 //prints
 void	s(t_args *lstargs);
 void	d(t_args *lstargs);
 void	ft_print_precision(t_args *lstargs);
+void	ft_print_prefix(t_args *lstargs);
 //other fncs
 void	*ft_getfnc(t_args *lstargs);
 void	ft_call(void (*f)(t_args*), t_args *lstargs);
@@ -56,4 +57,5 @@ void	ft_putstr(const char *s, t_args *lstargs);
 int		ft_printf(char *str, ...);
 char	*ft_trim_arg(char *str);
 void	ft_reset_list(t_args *lstargs);
+void	test(t_args *lstargs);
 #endif //

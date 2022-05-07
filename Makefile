@@ -6,7 +6,7 @@
 #    By: bena <bena@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 09:47:22 by becastro          #+#    #+#              #
-#    Updated: 2022/05/06 20:57:32 by bena             ###   ########.fr        #
+#    Updated: 2022/05/07 16:40:49y bena             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,15 @@ RM	= rm -r
 LIBFT = libft
 CFLAGS = -Wall -Wextra -Werror
 SANITIZE = -fsanitize=address -g3
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 SRC_DIR = srcs/ft_
 OBJ_DIR = obj/
-FT = ft_
 
 #files
-SRC_FILES = printf printf_utils is_arg print_args getflags print_precision
+SRC_FILES = printf printf_utils is_arg print_args getflags print_precision print_prefix
 
-SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
-OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
+SRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 #rules
 
@@ -46,12 +46,24 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
+out: re
+	@$(CC) main.c libftprintf.a
+	@./a.out
+
+sanitize: re
+	@$(CC) $(SANITIZE) main.c libftprintf.a
+	@./a.out
+
+valgrind: re
+	@$(CC) main.c libftprintf.a
+	@$(VALGRIND) ./a.out
+
 clean:
 	@$(RM) -rf $(OBJ_DIR)
 	@make clean -C $(LIBFT)
 
 fclean: clean
-		@$(RM) -f $(NAME)
-		@$(RM) -f $(LIBFT)/libft.a
+	@$(RM) -f $(NAME)
+	@$(RM) -f $(LIBFT)/libft.a
 
 re: fclean all
