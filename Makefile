@@ -22,7 +22,7 @@ SRC_DIR = srcs/ft_
 OBJ_DIR = obj/
 
 #files
-SRC_FILES = printf printf_utils is_arg print_args getflags print_precision print_prefix
+SRC_FILES = printf printf_utils is_arg print_args getflags print_precision print_prefix print_types
 
 SRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -41,10 +41,12 @@ $(NAME):$(OBJ)
 OBJF = .cache_exists
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
+BONUS : re
+	@echo "bonus compiled"
 
 out: re
 	@$(CC) main.c libftprintf.a

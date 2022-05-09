@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:46:34 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/05 18:28:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/09 19:48:14 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_is_arg(const char *s)
 {

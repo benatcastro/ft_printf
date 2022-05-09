@@ -6,11 +6,11 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/07 17:39:20 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/09 22:20:27 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
 void	ft_putchar(unsigned char c, t_args *lstargs)
 {
@@ -18,14 +18,15 @@ void	ft_putchar(unsigned char c, t_args *lstargs)
 	lstargs->args_size++;
 }
 
-void	ft_putstr(const char *s, t_args *lstargs)
+void	ft_putstr(char *s, t_args *lstargs)
 {
 	size_t	i;
 
-	i = -1;
-	while (s[++i])
+	i = 0;
+	while (s[i])
 	{
 		ft_putchar(s[i], lstargs);
+		i++;
 	}
 }
 
@@ -34,10 +35,11 @@ void	*ft_getfnc(t_args *lstargs)
 
 	if (lstargs->type == 'd')
 		return (&d);
-	if (lstargs->type == 's')
+	else if (lstargs->type == 's')
 		return (&s);
-	else
-		return (0);
+	else if (lstargs->type == 'c')
+		return (&c);
+	return (0);
 }
 
 void	ft_call(void (*f)(t_args*), t_args *lstargs)

@@ -6,11 +6,11 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/07 18:21:27 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/09 19:48:03 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
 t_args	*ft_getflags(t_args *lstargs)
 {
@@ -75,13 +75,13 @@ void	ft_get_precision_size(t_args *lstargs, char *str)
 	i = 0;
 	while (str[i] && ft_isdigit(str[i]))
 		i++;
-	printf("char: (%c)", str[i]);
+	//printf("char: (%c)", str[i]);
 	if (!is_in_types(str[i]))
 		lstargs->valid_arg = 1;
 	else
 		lstargs->valid_arg = 0;
 	size_c = ft_substr(str, 0, i);
-	printf("size_c (%s)\n", size_c);
+	// printf("size_c (%s)\n", size_c);
 	lstargs->precision_size = ft_atoi(size_c);
 	free(size_c);
 }

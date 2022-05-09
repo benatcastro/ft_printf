@@ -6,32 +6,12 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/07 18:12:31 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/09 22:49:05 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
-void	d(t_args *lstargs)
-{
-	int	nbr;
-
-	nbr = va_arg(lstargs->variatic_arg, int);
-	lstargs->printable_arg = ft_itoa(nbr);
-}
-
-
-void	s(t_args *lstargs)
-{
-	int		printed;
-	char	*s;
-
-
-	s = va_arg(lstargs->variatic_arg, char *);
-	printed = ft_strlen(s);
-	ft_putstr(s, lstargs);
-	lstargs->args_size += printed;
-}
 
 
 void	test(t_args *lstargs)
@@ -48,11 +28,21 @@ void	test(t_args *lstargs)
 
 int	ft_print_argument(t_args *lstargs)
 {
+	//c(lstargs);
 	//ft_call(test, lstargs);
+	//printf("Type (%c), fncP (%p)\n", lstargs->type, ft_getfnc(lstargs));
 	ft_call(ft_getfnc(lstargs), lstargs);
 	ft_print_prefix(lstargs);
-	ft_print_precision(lstargs);
-	ft_putstr(lstargs->printable_arg, lstargs);
+	if (lstargs->precision_type == '-')
+	{
+		ft_putstr(lstargs->printable_arg, lstargs);
+		ft_print_precision(lstargs);
+	}
+	else
+	{
+		ft_print_precision(lstargs);
+		ft_putstr(lstargs->printable_arg, lstargs);
+	}
 	//ft_call(test, lstargs);
 	ft_reset_list(lstargs);
 	return (0);
