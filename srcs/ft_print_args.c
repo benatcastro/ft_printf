@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 08:16:09 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 14:07:35 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-
 
 void	test(t_args *lstargs)
 {
@@ -25,12 +23,11 @@ void	test(t_args *lstargs)
 	ft_reset_list(lstargs);
 }
 
-
 int	ft_print_argument(t_args *lstargs)
 {
 	//c(lstargs);
-	ft_call(test, lstargs);
-	return (0);
+	//ft_call(test, lstargs);
+	//return (0);
 	//printf("Type (%c), fncP (%p)\n", lstargs->type, ft_getfnc(lstargs));
 	ft_call(ft_getfnc(lstargs), lstargs);
 	ft_print_prefix(lstargs);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:30:00 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 08:15:05 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 12:46:17 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_print_precision(t_args *lstargs)
 	char	c;
 	int		i;
 
+	i = 0;
 	if (lstargs->precision_type == '.' && lstargs->type == 's')
 		//printf("DOT FNC\n");
 		ft_call(ft_print_dot, lstargs);
@@ -42,10 +43,10 @@ void	ft_print_dot(t_args *lstargs)
 	char	*test;
 
 	src = lstargs->printable_arg;
-	test = ft_substr(src, 0, 2);
+	test = ft_substr(src, 0, lstargs->precision_size);
 	free(lstargs->printable_arg);
 	//printf("PRINTF TEST (%s)\n", test);
 	lstargs->printable_arg = test;
-	ft_putstr(test, lstargs);
-	ft_putchar('\n', lstargs);
+	//ft_putstr(test, lstargs);
+	//ft_putchar('\n', lstargs);
 }

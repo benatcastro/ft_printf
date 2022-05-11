@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 08:15:51 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 14:11:46 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 // 	free(lstargs);
 // }
 
-
 int	main(void)
 {
 	int		i;
@@ -33,11 +32,10 @@ int	main(void)
 	void	*p;
 
 	p = &d;
-	str = "my printf, %.2s test\n";
-
-	i = ft_printf(str, "hola");
+	str = "my printf, %+-6d test\n";
+	i = ft_printf(str, -123);
 	printf("i = %d\n", i);
-	i = printf(str, "hola");
+	i = printf(str, -123);
 	printf("i = %d \n", i);
 	//printf("my return: %d", i);
 	//i = ft_printf("hello, %s\n", "HOplah sadjkhfg fg kjghfg  kajhdsf gFGH KSAD KajsdhffdgghfkJHAFGDS");
