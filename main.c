@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 14:11:46 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:33:39 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	main(void)
 	void	*p;
 
 	p = &d;
-	str = "my printf, %+-6d test\n";
-	i = ft_printf(str, -123);
+	str = "my printf, test\n";
+	i = ft_printf("my printf, test\n");
 	printf("i = %d\n", i);
-	i = printf(str, -123);
-	printf("i = %d \n", i);
+	//i = printf(str;
+	//printf("i = %d \n", i);
 	//printf("my return: %d", i);
 	//i = ft_printf("hello, %s\n", "HOplah sadjkhfg fg kjghfg  kajhdsf gFGH KSAD KajsdhffdgghfkJHAFGDS");
 	//i = ft_printf("hello, %d\n", -123);

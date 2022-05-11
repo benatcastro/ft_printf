@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 12:38:25 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/11 14:46:33 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	upper_x(t_args *lstargs)
 	while (hexa_nbr[++i])
 		hexa_nbr[i] = ft_toupper(hexa_nbr[i]);
 	lstargs->printable_arg = hexa_nbr;
-
 }
 
 void	d(t_args *lstargs)

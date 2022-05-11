@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 07:23:23 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 16:53:32 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void	ft_putstr(char *s, t_args *lstargs);
 char	*ft_trim_arg(char *str);
 void	ft_reset_list(t_args *lstargs);
 void	test(t_args *lstargs);
-int		ft_printf(char *str, ...);
+int		ft_printf(const char *str, ...);
 int		ft_to_positive(int nbr);
 #endif //

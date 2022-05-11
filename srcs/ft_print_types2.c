@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_types2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 06:12:13 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 06:58:23 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 15:59:13 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ void	p(t_args *lstargs)
 	lstargs->printable_arg = ptr;
 	free(aux);
 }
+

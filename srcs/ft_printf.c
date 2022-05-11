@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/09 19:49:01 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 16:56:03 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *s, ...)
 {
 	size_t	i;
 	t_args	*lstargs;
 	char	*arg;
+	char	*str;
 
+	str = (char *)s;
 	lstargs = malloc(sizeof(t_args));
-	va_start(lstargs->variatic_arg, str);
+	va_start(lstargs->variatic_arg, s);
 	i = -1;
 	while (str[++i] != '\0')
 	{
@@ -27,7 +29,6 @@ int	ft_printf(char *str, ...)
 		{
 			arg = ft_trim_arg(&str[i + 1]);
 			lstargs->arg = arg;
-
 			ft_print_argument(ft_getflags(lstargs));
 			i += ft_is_arg (&str[i + 1]);
 			free(arg);

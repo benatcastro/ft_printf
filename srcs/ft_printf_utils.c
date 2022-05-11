@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 06:28:30 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 16:10:56 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,16 @@ void	ft_putstr(char *s, t_args *lstargs)
 
 void	*ft_getfnc(t_args *lstargs)
 {
-
-	if (lstargs->type == 'd')
-		return (&d);
-	else if (lstargs->type == 'c')
+	if (lstargs->type == 'c')
 		return (&c);
 	else if (lstargs->type == 's')
 		return (&s);
 	else if (lstargs->type == 'p')
 		return (&p);
+	else if (lstargs->type == 'd')
+		return (&d);
+	else if (lstargs->type == 'i')
+		return (&d);
 	else if (lstargs->type == 'x')
 		return (&x);
 	else if (lstargs->type == 'X')
@@ -62,5 +63,3 @@ char	*ft_trim_arg(char *str)
 		i++;
 	return (ft_substr(str, 0, i + 1));
 }
-
-

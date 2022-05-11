@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:30:00 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 12:46:17 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/11 14:40:10 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_print_precision(t_args *lstargs)
 	else if (lstargs->precision_type == '-')
 	{
 		c = ' ';
-		i = ft_strlen(lstargs->printable_arg) + lstargs->precision_size;
+		i = (ft_strlen(lstargs->printable_arg) - lstargs->precision_size) * -1;
+		//printf("I = (%d)\n", i);
 	}
 	while (i--)
 		ft_putchar(c, lstargs);
