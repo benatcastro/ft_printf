@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 05:37:20 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 05:45:35 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,13 @@ void	ft_to_hexa(unsigned long long nbr, t_hexa_data *hexa_data)
 	}
 }
 
+void	ft_reset_list(t_args *lstargs)
+{
+	lstargs->arg = 0;
+	lstargs->type = 0;
+	lstargs->prefix = 0;
+	lstargs->precision_type = 0;
+	lstargs->precision_size = 0;
+	lstargs->valid_arg = 0;
+	free(lstargs->printable_arg);
+}

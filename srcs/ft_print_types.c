@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/09 22:26:43 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 06:03:05 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ void	c(t_args *lstargs)
 	lstargs->printable_arg = c_str;
 }
 
-void	d(t_args *lstargs)
-{
-	int	nbr;
-
-	nbr = va_arg(lstargs->variatic_arg, int);
-	lstargs->printable_arg = ft_itoa(nbr);
-}
-
 void	s(t_args *lstargs)
 {
 	char	*s;
@@ -40,3 +32,36 @@ void	s(t_args *lstargs)
 	lstargs->printable_arg = s;
 }
 
+void	x(t_args *lstargs)
+{
+	char	*hexa_nbr;
+
+	hexa_nbr = ft_itoa_hexa(va_arg(lstargs->variatic_arg, int));
+	lstargs->printable_arg = hexa_nbr;
+
+}
+
+void	upper_x(t_args *lstargs)
+{
+	char	*hexa_nbr;
+	int		i;
+
+	i = -1;
+	hexa_nbr = ft_itoa_hexa(va_arg(lstargs->variatic_arg, int));
+	while (hexa_nbr[++i])
+	{
+		if (ft_isalpha(hexa_nbr[i]))
+			hexa_nbr[i] = ft_toupper(hexa_nbr[i]);
+	}
+
+	lstargs->printable_arg = hexa_nbr;
+
+}
+
+void	d(t_args *lstargs)
+{
+	int	nbr;
+
+	nbr = va_arg(lstargs->variatic_arg, int);
+	lstargs->printable_arg = ft_itoa(nbr);
+}

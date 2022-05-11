@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/09 22:20:27 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 06:00:10 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putstr(char *s, t_args *lstargs)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		ft_putchar(s[i], lstargs);
 		i++;
@@ -39,6 +39,10 @@ void	*ft_getfnc(t_args *lstargs)
 		return (&s);
 	else if (lstargs->type == 'c')
 		return (&c);
+	else if (lstargs->type == 'x')
+		return (&x);
+	else if (lstargs->type == 'X')
+		return (&upper_x);
 	return (0);
 }
 
@@ -57,13 +61,4 @@ char	*ft_trim_arg(char *str)
 	return (ft_substr(str, 0, i + 1));
 }
 
-void	ft_reset_list(t_args *lstargs)
-{
-	lstargs->arg = 0;
-	lstargs->type = 0;
-	lstargs->prefix = 0;
-	lstargs->precision_type = 0;
-	lstargs->precision_size = 0;
-	lstargs->valid_arg = 0;
-	free(lstargs->printable_arg);
-}
+
