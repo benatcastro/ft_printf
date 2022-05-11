@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 06:00:10 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 06:28:30 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ void	*ft_getfnc(t_args *lstargs)
 
 	if (lstargs->type == 'd')
 		return (&d);
-	else if (lstargs->type == 's')
-		return (&s);
 	else if (lstargs->type == 'c')
 		return (&c);
+	else if (lstargs->type == 's')
+		return (&s);
+	else if (lstargs->type == 'p')
+		return (&p);
 	else if (lstargs->type == 'x')
 		return (&x);
 	else if (lstargs->type == 'X')

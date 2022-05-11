@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 06:03:05 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 06:09:26 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,7 @@ void	upper_x(t_args *lstargs)
 	i = -1;
 	hexa_nbr = ft_itoa_hexa(va_arg(lstargs->variatic_arg, int));
 	while (hexa_nbr[++i])
-	{
-		if (ft_isalpha(hexa_nbr[i]))
-			hexa_nbr[i] = ft_toupper(hexa_nbr[i]);
-	}
-
+		hexa_nbr[i] = ft_toupper(hexa_nbr[i]);
 	lstargs->printable_arg = hexa_nbr;
 
 }

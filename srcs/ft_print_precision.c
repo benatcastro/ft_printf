@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:30:00 by bena              #+#    #+#             */
-/*   Updated: 2022/05/10 02:42:27 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 08:15:05 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	ft_print_precision(t_args *lstargs)
 	char	c;
 	int		i;
 
+	if (lstargs->precision_type == '.' && lstargs->type == 's')
+		//printf("DOT FNC\n");
+		ft_call(ft_print_dot, lstargs);
 	if (lstargs->precision_size < (int)ft_strlen(lstargs->printable_arg))
 		return ;
 	if (lstargs->precision_type == '0')
@@ -29,8 +32,20 @@ void	ft_print_precision(t_args *lstargs)
 		c = ' ';
 		i = ft_strlen(lstargs->printable_arg) + lstargs->precision_size;
 	}
-	//printf("SIZE: (%d)\n", i);
-	//return ;
 	while (i--)
 		ft_putchar(c, lstargs);
+}
+
+void	ft_print_dot(t_args *lstargs)
+{
+	char	*src;
+	char	*test;
+
+	src = lstargs->printable_arg;
+	test = ft_substr(src, 0, 2);
+	free(lstargs->printable_arg);
+	//printf("PRINTF TEST (%s)\n", test);
+	lstargs->printable_arg = test;
+	ft_putstr(test, lstargs);
+	ft_putchar('\n', lstargs);
 }

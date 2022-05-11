@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/09 19:48:03 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 07:40:45 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,13 @@ void	ft_get_precision(t_args *lstargs, char *arg)
 			lstargs->precision_type = '-';
 			break ;
 		}
-		else if (arg[i] && lstargs->precision_type != '-')
+		else if (arg[i] == '.')
+		{
+			lstargs->precision_type = '.';
+			break ;
+		}
+		else if (arg[i] && (lstargs->precision_type != '-'
+				&& lstargs->precision_type != '.'))
 		{
 			lstargs->precision_type = '0';
 			break ;

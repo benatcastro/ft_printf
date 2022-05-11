@@ -22,7 +22,7 @@ SRC_DIR = srcs/ft_
 OBJ_DIR = obj/
 
 #files
-SRC_FILES = printf printf_utils printf_utils2 is_arg print_args getflags print_precision print_prefix print_types
+SRC_FILES = printf printf_utils printf_utils2 is_arg print_args getflags print_precision print_prefix print_types print_types2
 
 SRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

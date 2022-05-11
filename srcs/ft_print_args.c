@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/10 02:33:33 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 08:16:09 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	test(t_args *lstargs)
 int	ft_print_argument(t_args *lstargs)
 {
 	//c(lstargs);
-	//ft_call(test, lstargs);
+	ft_call(test, lstargs);
+	return (0);
 	//printf("Type (%c), fncP (%p)\n", lstargs->type, ft_getfnc(lstargs));
 	ft_call(ft_getfnc(lstargs), lstargs);
 	ft_print_prefix(lstargs);
@@ -41,6 +42,7 @@ int	ft_print_argument(t_args *lstargs)
 	else
 	{
 		ft_print_precision(lstargs);
+		//printf("%s", lstargs->printable_arg);
 		ft_putstr(lstargs->printable_arg, lstargs);
 	}
 	//ft_call(test, lstargs);
