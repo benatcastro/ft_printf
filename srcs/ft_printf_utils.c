@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 16:10:56 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:26:31 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void	ft_putstr(char *s, t_args *lstargs)
 {
 	size_t	i;
 
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		lstargs->args_size += 6;
+	}
+	else if ((s[0] == 0 && s[1] == 0) && lstargs->type == 'c')
+		ft_putchar(0, lstargs);
 	i = 0;
 	while (s[i] != '\0')
 	{

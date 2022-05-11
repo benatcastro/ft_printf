@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 05:45:35 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/11 17:32:51 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ char	*ft_itoa_hexa(long long nbr)
 	return_str = ft_strdup(hexa_data->hexa_str);
 	free(hexa_data->hexa_str);
 	free(hexa_data);
+	if (nbr == -1)
+	{
+		free(return_str);
+		return_str = ft_strdup("ffffffff");
+	}
 	return (return_str);
 }
 

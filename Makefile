@@ -45,7 +45,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
-BONUS : re
+bonus : re
 	@echo "bonus compiled"
 
 out: re

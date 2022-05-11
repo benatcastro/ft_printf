@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 14:46:33 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:05:23 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	s(t_args *lstargs)
 	char	*s;
 
 	s = ft_strdup(va_arg(lstargs->variatic_arg, char *));
+	if (s == NULL)
+		s = ft_strdup("(null)");
 	lstargs->printable_arg = s;
 }
 
