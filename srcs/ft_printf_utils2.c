@@ -5,78 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 02:47:50 by bena              #+#    #+#             */
-/*   Updated: 2022/05/10 04:14:16 by bena             ###   ########.fr       */
+/*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
+/*   Updated: 2022/05/11 05:37:20 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-
-
-
-char	*c_to_str(char c)
+char	*ft_char_to_s(char c)
 {
 	char	*s;
 
 	s = malloc(2);
 	s[0] = c;
-	s[1] = '\0';
+	s[1] = 0;
 	return (s);
 }
-void	ft_nbr_to_hexa(long long nbr, t_args *lstargs)
-{
-	int	size_base;
-	int	nbr_final[100];
-	int	i;
-	char	*base;
 
-	base = "0123456789abcdef";
-	i = 0;
-	size_base = 0;
-	if (nbr < 0)
-	{
-		nbr = -nbr;
-		ft_putchar('-', lstargs);
-	}
-	while (base[size_base])
-		size_base++;
-	while (nbr)
-	{
-		nbr_final[i] = nbr % size_base;
-		nbr = nbr / size_base;
-		i++;
-	}
-	while (--i)
-		ft_putchar(base[nbr_final[i]], lstargs);
+char	*ft_itoa_hexa(long long nbr)
+{
+	t_hexa_data	*hexa_data;
+	char		*return_str;
+
+	hexa_data = malloc(sizeof(hexa_data));
+	hexa_data->i = 0;
+	hexa_data->check = 0;
+	ft_to_hexa(nbr, hexa_data);
+	hexa_data->check = 1;
+	hexa_data->hexa_str = malloc(hexa_data->len);
+	ft_to_hexa(nbr, hexa_data);
+	return_str = ft_strdup(hexa_data->hexa_str);
+	free(hexa_data->hexa_str);
+	free(hexa_data);
+	return (return_str);
 }
 
-char	*ft_putnbr_base(int nbr, t_args *lstargs)
+void	ft_to_hexa(unsigned long long nbr, t_hexa_data *hexa_data)
 {
-	//int		size_base;
-	//int		nbr_final[100];
-	char	*str;
-	int		i;
 	char	*base;
-	str = malloc(100);
+
 	base = "0123456789abcdef";
-	i = 0;
-	//size_base = 16;
-		if (nbr < 0)
+	if (nbr > 15)
+	{
+		ft_to_hexa(nbr / 16, hexa_data);
+		ft_to_hexa(nbr % 16, hexa_data);
+	}
+	else
+	{
+		nbr += 48;
+		if (nbr > '9')
+			nbr = base[nbr - 48];
+		if (hexa_data->check == 0)
+			hexa_data->len++;
+		else if (hexa_data->check == 1)
 		{
-			nbr = -nbr;
-			ft_putchar('-', lstargs);
+			hexa_data->hexa_str[hexa_data->i] = nbr;
+			hexa_data->i++;
 		}
-		while (nbr)
-		{
-			ft_strlcat(str, c_to_str(base[nbr % 16]), 1);
-			//nbr_final[i] = nbr % 16;
-			nbr /= 16;
-			//printf("TEST:(%d)(%d)", nbr, nbr_final[i]);
-			i++;
-		}
-		return (str);
-		// while (--i >= 0)
-		// 	ft_putchar(base[nbr_final[i]], lstargs);
+	}
 }
 
