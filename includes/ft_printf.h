@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 16:53:32 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 03:32:38 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_to_hexa(unsigned long long nbr, t_hexa_data *t_hexa_data);
 void	ft_print_precision(t_args *lstargs);
 void	ft_print_prefix(t_args *lstargs);
 void	ft_print_dot(t_args *lstargs);
+void	ft_print_sign(t_args *lstargs);
 //other fncs
 void	*ft_getfnc(t_args *lstargs);
 void	ft_call(void (*f)(t_args*), t_args *lstargs);

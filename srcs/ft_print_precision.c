@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:30:00 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 14:40:10 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 03:51:16 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_print_precision(t_args *lstargs)
 	{
 		c = '0';
 		i = (ft_strlen(lstargs->printable_arg) - lstargs->precision_size) * -1;
+		ft_print_sign(lstargs);
 	}
 	else if (lstargs->precision_type == '-')
 	{
@@ -50,4 +51,19 @@ void	ft_print_dot(t_args *lstargs)
 	lstargs->printable_arg = test;
 	//ft_putstr(test, lstargs);
 	//ft_putchar('\n', lstargs);
+}
+
+void	ft_print_sign(t_args *lstargs)
+{
+	char	*s;
+
+	if (lstargs->printable_arg[0] == '-')
+	{
+		ft_putchar('-', lstargs);
+		s = ft_substr(lstargs->printable_arg, 1,
+				ft_strlen(lstargs->printable_arg) - 1);
+		free(lstargs->printable_arg);
+		lstargs->printable_arg = s;
+	}
+
 }
