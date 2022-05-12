@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 03:32:38 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/12 04:03:20 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	p(t_args *lstargs);
 void	d(t_args *lstargs);
 void	x(t_args *lstargs);
 void	upper_x(t_args *lstargs);
+void	percent(t_args *lstargs);
 //conversionsi
 char	*ft_itoa_hexa(long long nbr);
 void	ft_to_hexa(unsigned long long nbr, t_hexa_data *t_hexa_data);

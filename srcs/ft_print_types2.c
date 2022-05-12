@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_types2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 06:12:13 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 15:59:13 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 04:03:01 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,12 @@ void	p(t_args *lstargs)
 	free(aux);
 }
 
+void	percent(t_args *lstargs)
+{
+	char	*c_str;
+
+	c_str = malloc(2);
+	c_str[0] = '%';
+	c_str[1] = '\0';
+	lstargs->printable_arg = c_str;
+}

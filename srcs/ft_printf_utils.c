@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/11 17:26:31 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 04:05:42 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ void	*ft_getfnc(t_args *lstargs)
 		return (&x);
 	else if (lstargs->type == 'X')
 		return (&upper_x);
+	else if (lstargs->type == '%')
+		return (&percent);
+	ft_putstr("TYPE ERROR\n", lstargs);
 	return (0);
 }
 
