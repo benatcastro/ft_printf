@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 20:57:56 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:18:55 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	x(t_args *lstargs);
 void	upper_x(t_args *lstargs);
 void	percent(t_args *lstargs);
 //conversionsi
-char	*ft_itoa_base(long long nbr, int base);
-void	ft_nbr_base(long long nbr, t_nbr_data *t_hexa_data);
+char	*ft_itoa_base(unsigned long long nbr, int base);
+void	ft_nbr_base(unsigned long long nbr, t_nbr_data *t_hexa_data);
 //precision printers
 void	ft_print_precision(t_args *lstargs);
 void	ft_print_prefix(t_args *lstargs);

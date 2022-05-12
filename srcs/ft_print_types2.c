@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 06:12:13 by bena              #+#    #+#             */
-/*   Updated: 2022/05/12 21:35:53 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:19:59 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ void	p(t_args *lstargs)
 	char				*ptr;
 
 	pointer = va_arg(lstargs->variatic_arg, unsigned long long);
-	//printf ("POINTER %lld", pointer);
-	// if (pointer == -9223372036854775807 - 1)
-	// 	aux = ft_strdup("8000000000000000");
-	// else if ((unsigned long long)pointer > 1844674407370955161)
-	// 	aux = ft_strdup("ffffffffffffffff");
-	// else
 	aux = ft_itoa_base(pointer, 16);
 	ptr = ft_strjoin("0x", aux);
 	lstargs->printable_arg = ptr;

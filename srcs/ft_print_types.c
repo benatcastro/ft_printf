@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/12 21:03:44 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:20:33 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	x(t_args *lstargs)
 {
 	char	*hexa_nbr;
 
-	hexa_nbr = ft_itoa_base(va_arg(lstargs->variatic_arg, unsigned long long), 16);
+	hexa_nbr = ft_itoa_base(va_arg(lstargs->variatic_arg, unsigned long), 16);
 	lstargs->printable_arg = hexa_nbr;
 }
 
