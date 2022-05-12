@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_prefix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 17:46:23 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 14:10:56 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 03:59:56 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void	ft_print_prefix(t_args *lstargs)
 		{
 			ft_putchar(lstargs->prefix, lstargs);
 			lstargs->precision_size--;
+		}
+		if ((lstargs->type == 'x' || lstargs->type == 'X')
+			&& lstargs->prefix == '#')
+		{
+			ft_putstr("0x", lstargs);
+			lstargs->precision_size -= 2;
 		}
 	}
 }
