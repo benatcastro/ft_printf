@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 04:05:42 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/12 16:55:41 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	*ft_getfnc(t_args *lstargs)
 		return (&d);
 	else if (lstargs->type == 'i')
 		return (&d);
+	else if (lstargs->type == 'u')
+		return (&u);
 	else if (lstargs->type == 'x')
 		return (&x);
 	else if (lstargs->type == 'X')

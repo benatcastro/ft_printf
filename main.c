@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 04:04:29 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/12 21:47:35 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,9 @@
 
 int	main(void)
 {
-	int		i;
-	char	*str;
-	void	*p;
-
-	p = &d;
-	str = "Hola %%  adios\n";
-	i = ft_printf(str, 123);
-	printf("i = %d\n", i);
-	i = printf(str, 123);
-	printf("i = %d \n", i);
-	//printf("my return: %d", i);
-	//i = ft_printf("hello, %s\n", "HOplah sadjkhfg fg kjghfg  kajhdsf gFGH KSAD KajsdhffdgghfkJHAFGDS");
-	//i = ft_printf("hello, %d\n", -123);
-	//i = ft_printf("hello, %d\n", 123);
-	//i = ft_printf("hello, %d\n", 123);
-	//i = ft_printf("hello, %d\n", 123);
-	//i = printf("hello, %-10dhola\n", 123);
-	//printf("Og return: %d", i);
+	printf("-----THIS TEST ARE GONNA BE DONE BY PRINTF-----\n");
+	printf("LONG_MAX==%p\nLONG_MIN=%p\nULONG_MAX=%p\n-ULONG_MAX=%p\n", LONG_MAX, LONG_MIN, ULONG_MAX, -ULONG_MAX);
+	printf("!!!!!!!!!!!THIS TEST ARE GONNA BE DONE BY FT_PRINTF!!!!!!!!\n");
+	ft_printf("LONG_MIN=%p\nULONG_MAX=%p\n", LONG_MIN, ULONG_MAX);
+	return 1;
 }

@@ -1,4 +1,4 @@
-# **************************************************************************** #
+ # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -15,9 +15,10 @@ cc = gcc
 AR = ar rc
 RM	= rm -r
 LIBFT = libft
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 SANITIZE = -fsanitize=address -g3
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
+HEADER  = ../includes/
 SRC_DIR = srcs/ft_
 OBJ_DIR = obj/
 

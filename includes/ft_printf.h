@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 04:03:20 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/12 20:57:56 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "../libft/libft.h"
+# define LONG_MAX 9223372036854775807LL
+# define LONG_MIN -9223372036854775808
+# define ULONG_MAX 18446744073709551615ULL
 
 typedef struct t_args
 {
@@ -32,25 +35,27 @@ typedef struct t_args
 	int			valid_arg;
 }	t_args;
 
-typedef struct t_hexa_data
+typedef struct t_nbr_data
 {
-	char		*hexa_str;
+	char		*nbr_str;
+	int			base;
 	int			len;
 	int			i;
 	int			check;
-}	t_hexa_data;
+}	t_nbr_data;
 
 //prints
 void	c(t_args *lstargs);
 void	s(t_args *lstargs);
 void	p(t_args *lstargs);
 void	d(t_args *lstargs);
+void	u(t_args *lstargs);
 void	x(t_args *lstargs);
 void	upper_x(t_args *lstargs);
 void	percent(t_args *lstargs);
 //conversionsi
-char	*ft_itoa_hexa(long long nbr);
-void	ft_to_hexa(unsigned long long nbr, t_hexa_data *t_hexa_data);
+char	*ft_itoa_base(long long nbr, int base);
+void	ft_nbr_base(long long nbr, t_nbr_data *t_hexa_data);
 //precision printers
 void	ft_print_precision(t_args *lstargs);
 void	ft_print_prefix(t_args *lstargs);
