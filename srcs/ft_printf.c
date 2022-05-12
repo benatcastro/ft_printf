@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 21:34:37 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/12 23:29:03 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	ft_printf(const char *s, ...)
 	t_args	*lstargs;
 	char	*arg;
 	char	*str;
-
+	int		aux;
 	str = (char *)s;
-	lstargs = malloc(sizeof(t_args));
+	lstargs = ft_calloc(1, sizeof(t_args));
 	va_start(lstargs->variatic_arg, s);
 	i = -1;
 	while (str[++i] != '\0')
@@ -37,6 +37,7 @@ int	ft_printf(const char *s, ...)
 			ft_putchar(str[i], lstargs);
 	}
 	va_end(lstargs->variatic_arg);
+	aux = lstargs->args_size;
 	free(lstargs);
-	return (lstargs->args_size);
+	return (aux);
 }
