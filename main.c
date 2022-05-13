@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 02:56:47 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 06:39:58 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	main(void)
 {
 
 	int i;
-	char	*str = "%1s";
-	i = printf(str, "");
+	char	*str = "%5%";
+	i = printf(str);
 	printf("i: %d\n", i);
-	i = ft_printf(str, "");
+	i = ft_printf(str);
 	printf("i: %d\n", i);
 
 	// printf("-----THIS TEST ARE GONNA BE DONE BY PRINTF-----\n");

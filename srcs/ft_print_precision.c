@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:30:00 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 02:57:41 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 05:30:19 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,29 @@ void	ft_print_precision(t_args *lstargs)
 	int	i;
 
 	i = 0;
-	if (lstargs->precision_type == '.' && lstargs->type == 's')
+	if (lstargs->null_case == 1)
+	{
+		while (lstargs->null_len-- > 0)
+			ft_putchar(' ', lstargs);
+	}
+	else if (lstargs->precision_type == '.' && lstargs->type == 's')
 		ft_call(ft_print_dot, lstargs);
-	if (lstargs->precision_size < (int)ft_strlen(lstargs->printable_arg))
-		return ;
-	if (lstargs->precision_type == '0')
+	else if (lstargs->precision_type == '.')
+		ft_call(ft_print_zero, lstargs);
+	if (lstargs->precision_type == '0' || lstargs->precision_type == 's')
 		ft_call(ft_print_zero, lstargs);
 	else if (lstargs->precision_type == '-')
 		ft_call(ft_print_minus, lstargs);
 	i = lstargs->write_pre;
-	while (i--)
+	while (i-- > 0)
 		ft_putchar(lstargs->precision_char, lstargs);
 }
 
 void	ft_print_zero(t_args *lstargs)
 {
 	lstargs->precision_char = '0';
+	if (lstargs->printable_arg[0] == '-' && lstargs->precision_type == '.')
+		lstargs->precision_size++;
 	lstargs->write_pre = (ft_strlen(lstargs->printable_arg)
 			- lstargs->precision_size) * -1;
 	ft_print_sign(lstargs);
@@ -56,10 +63,7 @@ void	ft_print_dot(t_args *lstargs)
 	src = lstargs->printable_arg;
 	test = ft_substr(src, 0, lstargs->precision_size);
 	free(lstargs->printable_arg);
-	//printf("PRINTF TEST (%s)\n", test);
 	lstargs->printable_arg = test;
-	//ft_putstr(test, lstargs);
-	//ft_putchar('\n', lstargs);
 }
 
 void	ft_print_sign(t_args *lstargs)

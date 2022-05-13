@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 02:50:23 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 05:40:04 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	c(t_args *lstargs)
 	}
 	else if (c == 0)
 	{
-		//printf("C: (%d)\n", c);
 		c_str = malloc(1);
 		c_str[0] = '\0';
 	}
@@ -40,7 +39,11 @@ void	s(t_args *lstargs)
 
 	s = ft_strdup(va_arg(lstargs->variatic_arg, char *));
 	if (s == NULL)
+	{
 		s = ft_strdup("(null)");
+	}
+	if (!s[0])
+		ft_s_null_case(lstargs);
 	lstargs->printable_arg = s;
 }
 

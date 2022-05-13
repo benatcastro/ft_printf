@@ -6,20 +6,25 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 02:46:10 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 05:28:35 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char	*ft_char_to_s(char c)
+void	ft_s_null_case(t_args *lstargs)
 {
-	char	*s;
+	char	*aux;
+	int		i;
 
-	s = malloc(2);
-	s[0] = c;
-	s[1] = 0;
-	return (s);
+	i = 0;
+	//printf("TETAS\n");
+	while (is_in_types(lstargs->arg[i]))
+		i++;
+	aux = ft_substr(lstargs->arg, 0, i);
+	lstargs->null_len = ft_atoi(aux);
+	lstargs->null_case = 1;
+	free(aux);
 }
 
 char	*ft_itoa_base(unsigned long long nbr, int base)
@@ -81,5 +86,6 @@ void	ft_reset_list(t_args *lstargs)
 	lstargs->valid_arg = 0;
 	lstargs->write_pre = 0;
 	lstargs->arg = 0;
+	lstargs->null_case = 0;
 	free(lstargs->printable_arg);
 }
