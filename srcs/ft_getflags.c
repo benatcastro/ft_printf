@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 13:22:09 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:01:55 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_args	*ft_getflags(t_args *lstargs)
 
 	i = -1;
 	ft_get_first_param(lstargs);
-	//printf("TRIMMED ARGS: %s\n", lstargs->arg);
 	while (lstargs->arg[++i])
 	{
 		if (!is_in_prefix(lstargs->arg[i]))

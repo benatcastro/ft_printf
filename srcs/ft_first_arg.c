@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:37:08 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 13:26:43 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:01:28 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ void	ft_get_first_param(t_args *lstargs)
 	if (full_arg[0] == '-')
 	{
 		lstargs->first_params.sign = '-';
-		i++;
+		full_arg++;
 	}
-	while (is_in_precision(full_arg[i]))
+	while (!ft_isdigit(full_arg[i]))
+		i++;
+	while (is_in_precision(full_arg[i]) || full_arg[i] == '0')
 		i++;
 	aux = ft_substr(full_arg, 0, i);
 	lstargs->first_params.nbr = ft_atoi(aux);
