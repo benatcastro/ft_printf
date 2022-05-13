@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 04:51:55 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:42:12 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,32 @@ void	test(t_args *lstargs)
 
 int	ft_print_argument(t_args *lstargs)
 {
-	//c(lstargs);
-	//ft_call(test, lstargs);
-	//return (0);
-	//printf("Type (%c), fncP (%p)\n", lstargs->type, ft_getfnc(lstargs));
+	int	i;
+
 	ft_call(ft_getfnc(lstargs), lstargs);
 	ft_print_prefix(lstargs);
+	i = lstargs->first_params.nbr
+		- ft_strlen(lstargs->printable_arg) + 1;
+	if (lstargs->first_params.sign != '-')
+	{
+		while (i-- > 0)
+			ft_putchar(' ', lstargs);
+		ft_final_print(lstargs);
+	}
+	else if (lstargs->first_params.sign == '-')
+	{
+		ft_final_print(lstargs);
+		while (i-- > 0)
+			ft_putchar(' ', lstargs);
+	}
+	ft_reset_list(lstargs);
+	return (0);
+}
+
+void	ft_final_print(t_args *lstargs)
+{
 	if (lstargs->precision_type == '-')
 	{
-		//printf("(%s)", lstargs->printable_arg);
 		ft_putstr(lstargs->printable_arg, lstargs);
 		ft_print_precision(lstargs);
 	}
@@ -42,7 +59,4 @@ int	ft_print_argument(t_args *lstargs)
 		ft_print_precision(lstargs);
 		ft_putstr(lstargs->printable_arg, lstargs);
 	}
-	//ft_call(test, lstargs);
-	ft_reset_list(lstargs);
-	return (0);
 }

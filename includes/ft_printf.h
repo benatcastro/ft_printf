@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 05:28:30 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:42:19 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # define LONG_MAX 9223372036854775807LL
 # define LONG_MIN -9223372036854775808
 # define ULONG_MAX 18446744073709551615ULL
+
+typedef struct t_f_width
+{
+	int			nbr;
+	char		sign;
+}	t_f_width;
 
 typedef struct t_args
 {
@@ -36,6 +42,7 @@ typedef struct t_args
 	int			valid_arg;
 	int			null_case;
 	int			null_len;
+	t_f_width	first_params;
 	va_list		variatic_arg;
 }	t_args;
 
@@ -47,7 +54,8 @@ typedef struct t_nbr_data
 	int			i;
 	int			check;
 }	t_nbr_data;
-
+//field width
+void	ft_get_first_param(t_args *lstargs);
 //prints
 void	c(t_args *lstargs);
 void	s(t_args *lstargs);
@@ -90,4 +98,5 @@ void	ft_reset_list(t_args *lstargs);
 void	test(t_args *lstargs);
 int		ft_printf(const char *str, ...);
 int		ft_to_positive(int nbr);
+void	ft_final_print(t_args *lstargs);
 #endif //
