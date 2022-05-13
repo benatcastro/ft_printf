@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:37:08 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 14:01:28 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:23:47 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,4 @@ void	ft_get_first_param(t_args *lstargs)
 	free(lstargs->arg);
 	lstargs->arg = ft_strdup(aux);
 	free(aux);
-}
-
-void	ft_print_first_param(t_f_width first_params, t_args *lstargs)
-{
-	while (first_params.nbr-- > 0)
-		ft_putchar(' ', lstargs);
 }

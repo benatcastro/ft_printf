@@ -15,7 +15,7 @@ cc = gcc
 AR = ar rc
 RM	= rm -r
 LIBFT = libft
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 SANITIZE = -fsanitize=address -g3
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 HEADER  = ../includes/

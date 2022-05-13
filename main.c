@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 13:58:57 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:12:52 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(void)
 {
 
 	int i;
-	char	*str = "%-10.3s";
+	char	*str = "%10.3s";
+	i = 0;
 	i = printf(str, "hola");
 	printf("i: %d\n", i);
 	i = ft_printf(str, "hola");
