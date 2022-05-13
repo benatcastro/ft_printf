@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 00:18:09 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 02:56:47 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ int	main(void)
 {
 
 	int i;
-	char	*str = "%x\n";
-	i = printf(str, -2);
+	char	*str = "%1s";
+	i = printf(str, "");
 	printf("i: %d\n", i);
-	i = ft_printf(str, -1);
+	i = ft_printf(str, "");
 	printf("i: %d\n", i);
+
 	// printf("-----THIS TEST ARE GONNA BE DONE BY PRINTF-----\n");
 	// printf("LONG_MAX==%p\nLONG_MIN=%p\nULONG_MAX=%p\n-ULONG_MAX=%p\n", LONG_MAX, LONG_MIN, ULONG_MAX, -ULONG_MAX);
 	// printf("!!!!!!!!!!!THIS TEST ARE GONNA BE DONE BY FT_PRINTF!!!!!!!!\n");

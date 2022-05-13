@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 00:33:22 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 02:46:10 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,12 @@ void	ft_nbr_base(unsigned long long nbr, t_nbr_data *nbr_data)
 
 void	ft_reset_list(t_args *lstargs)
 {
-	lstargs->arg = 0;
 	lstargs->type = 0;
 	lstargs->prefix = 0;
 	lstargs->precision_type = 0;
 	lstargs->precision_size = 0;
 	lstargs->valid_arg = 0;
+	lstargs->write_pre = 0;
+	lstargs->arg = 0;
 	free(lstargs->printable_arg);
 }

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/11 15:09:02 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 02:58:29 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ int	ft_print_argument(t_args *lstargs)
 	ft_print_prefix(lstargs);
 	if (lstargs->precision_type == '-')
 	{
+		//printf("(%s)", lstargs->printable_arg);
 		ft_putstr(lstargs->printable_arg, lstargs);
 		ft_print_precision(lstargs);
 	}
 	else
 	{
 		ft_print_precision(lstargs);
-		//printf("%s", lstargs->printable_arg);
 		ft_putstr(lstargs->printable_arg, lstargs);
 	}
 	//ft_call(test, lstargs);

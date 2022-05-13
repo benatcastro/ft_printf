@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/12 16:55:41 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 02:47:58 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_putchar(unsigned char c, t_args *lstargs)
 {
+	//write(1, "(", 1);
 	write(1, &c, 1);
+	//write(1, ")", 1);
 	lstargs->args_size++;
 }
 

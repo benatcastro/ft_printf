@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 00:00:30 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 01:58:09 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ typedef struct t_args
 	char		type;
 	char		prefix;
 	char		precision_type;
+	char		precision_char;
 	int			precision_size;
-	va_list		variatic_arg;
+	int			write_pre;
 	int			args_size;
 	int			valid_arg;
+	va_list		variatic_arg;
 }	t_args;
 
 typedef struct t_nbr_data
@@ -60,6 +62,8 @@ void	ft_nbr_base(unsigned long long nbr, t_nbr_data *t_hexa_data);
 void	ft_print_precision(t_args *lstargs);
 void	ft_print_prefix(t_args *lstargs);
 void	ft_print_dot(t_args *lstargs);
+void	ft_print_zero(t_args *lstargs);
+void	ft_print_minus(t_args *lstargs);
 void	ft_print_sign(t_args *lstargs);
 //other fncs
 void	*ft_getfnc(t_args *lstargs);

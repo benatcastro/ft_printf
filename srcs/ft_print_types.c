@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/12 22:38:08 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/13 02:50:23 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,20 @@ void	c(t_args *lstargs)
 	char	c;
 	char	*c_str;
 
-	c = va_arg(lstargs->variatic_arg, int);
-	c_str = malloc(2);
-	c_str[0] = c;
-	c_str[1] = '\0';
+	c_str = NULL;
+	c = va_arg(lstargs->variatic_arg, unsigned int);
+	if (c != 0)
+	{
+		c_str = malloc(2);
+		c_str[0] = c;
+		c_str[1] = '\0';
+	}
+	else if (c == 0)
+	{
+		//printf("C: (%d)\n", c);
+		c_str = malloc(1);
+		c_str[0] = '\0';
+	}
 	lstargs->printable_arg = c_str;
 }
 
@@ -38,7 +48,7 @@ void	x(t_args *lstargs)
 {
 	char	*hexa_nbr;
 
-	hexa_nbr = ft_itoa_base(va_arg(lstargs->variatic_arg, int), 16);
+	hexa_nbr = ft_itoa_base(va_arg(lstargs->variatic_arg, unsigned int), 16);
 	lstargs->printable_arg = hexa_nbr;
 }
 
@@ -48,7 +58,7 @@ void	upper_x(t_args *lstargs)
 	int		i;
 
 	i = -1;
-	hexa_nbr = ft_itoa_base(va_arg(lstargs->variatic_arg, int), 16);
+	hexa_nbr = ft_itoa_base(va_arg(lstargs->variatic_arg, unsigned int), 16);
 	while (hexa_nbr[++i])
 		hexa_nbr[i] = ft_toupper(hexa_nbr[i]);
 	lstargs->printable_arg = hexa_nbr;
