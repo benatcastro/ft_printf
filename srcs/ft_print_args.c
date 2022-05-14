@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/14 21:36:34 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/15 00:29:48 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,14 @@ void	ft_width_print(t_args *lstargs)
 	int	j;
 
 	j = ft_strlen(lstargs->printable_arg) - lstargs->precision_size;
-	// if (i == '.')
 	// 	ft_print_precision(lstargs);
 	i = lstargs->first_params.nbr
-		- ft_strlen(lstargs->printable_arg) + j;
-	//printf("I = (%d)\n", lstargs->precision_size);
+		- ft_strlen(lstargs->printable_arg);
+	if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg))
+		i++;
+	if (lstargs->precision_size > 0)
+		i += j;
+	//printf("I = (%d) J = (%d) PRE SIZE (%d)\n", i, j, lstargs->precision_size);
 	if (lstargs->first_params.sign != '-')
 	{
 		while (i-- > 0 && i)

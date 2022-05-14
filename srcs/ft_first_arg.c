@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:37:08 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/15 00:12:02 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/15 00:31:15 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ void	ft_get_first_param(t_args *lstargs)
 	lstargs->first_params.nbr = ft_atoi(aux);
 	free(aux);
 	aux = ft_substr(full_arg, i, ft_strlen(full_arg) - i);
-	//free(full_arg);
-	//printf("test arg %s\n", full_arg);
-	//return ;
 	free(lstargs->arg);
 	lstargs->arg = ft_strdup(aux);
 	free(aux);
+	free(full_arg);
 }
