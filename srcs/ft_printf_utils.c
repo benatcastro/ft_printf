@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 06:33:21 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/14 23:48:45 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	ft_call(void (*f)(t_args*), t_args *lstargs)
 char	*ft_trim_arg(char *str)
 {
 	size_t	i;
-
 	i = 0;
 	while (str[i] && is_in_types(str[i]))
 		i++;

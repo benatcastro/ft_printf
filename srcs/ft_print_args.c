@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/14 20:23:13 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/14 21:36:34 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,6 @@ void	test(t_args *lstargs)
 	ft_reset_list(lstargs);
 }
 
-int	ft_print_argument(t_args *lstargs)
-{
-	int	i;
-
-	ft_call(ft_getfnc(lstargs), lstargs);
-	ft_print_prefix(lstargs);
-	if (lstargs->precision_type == '.')
-		ft_print_precision(lstargs);
-	i = lstargs->first_params.nbr
-		- ft_strlen(lstargs->printable_arg);
-	if (lstargs->first_params.sign != '-')
-	{
-		while (i-- > 0 && i)
-			ft_putchar(' ', lstargs);
-		ft_final_print(lstargs);
-	}
-	else if (lstargs->first_params.sign == '-')
-	{
-		ft_final_print(lstargs);
-		while (i-- > 0)
-			ft_putchar(' ', lstargs);
-	}
-	ft_reset_list(lstargs);
-	return (0);
-}
-
 void	ft_final_print(t_args *lstargs)
 {
 	if (lstargs->precision_type == '-')
@@ -62,3 +36,43 @@ void	ft_final_print(t_args *lstargs)
 		ft_putstr(lstargs->printable_arg, lstargs);
 	}
 }
+
+void	ft_width_print(t_args *lstargs)
+{
+	int	i;
+	int	j;
+
+	j = ft_strlen(lstargs->printable_arg) - lstargs->precision_size;
+	// if (i == '.')
+	// 	ft_print_precision(lstargs);
+	i = lstargs->first_params.nbr
+		- ft_strlen(lstargs->printable_arg) + j;
+	//printf("I = (%d)\n", lstargs->precision_size);
+	if (lstargs->first_params.sign != '-')
+	{
+		while (i-- > 0 && i)
+			ft_putchar(' ', lstargs);
+		ft_final_print(lstargs);
+	}
+	else if (lstargs->first_params.sign == '-')
+	{
+		ft_final_print(lstargs);
+		while (i-- > 0)
+			ft_putchar(' ', lstargs);
+	}
+}
+
+int	ft_print_argument(t_args *lstargs)
+{
+	ft_call(ft_getfnc(lstargs), lstargs);
+	ft_print_prefix(lstargs);
+
+	if (lstargs->first_params.nbr)
+		ft_width_print(lstargs);
+	else
+		ft_final_print(lstargs);
+
+	ft_reset_list(lstargs);
+	return (0);
+}
+

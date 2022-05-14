@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 14:18:34 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/15 00:09:45 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	ft_printf(const char *s, ...)
 		if (str[i] == '%')
 		{
 			arg = ft_trim_arg(&str[i + 1]);
-			lstargs->arg = arg;
+			lstargs->arg = ft_strdup(arg);
+			free (arg);
 			ft_print_argument(ft_getflags(lstargs));
 			i += ft_is_arg (&str[i + 1]);
 		}

@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/14 20:29:52 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/15 00:03:54 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	main(void)
 {
 
 	int i;
-	char	*str = "%4.2u";
+	char	*str = "%-1c";
 	i = 0;
-	i = printf(str, 123);
+	i = printf(str, 'x');
 	printf("i: %d\n", i);
-	i = ft_printf(str, 123);
+	i = ft_printf(str, 'x');
 	printf("i: %d\n", i);
 
 	// printf("-----THIS TEST ARE GONNA BE DONE BY PRINTF-----\n");
