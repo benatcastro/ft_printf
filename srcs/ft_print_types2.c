@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_types2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 06:12:13 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 14:17:45 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/14 06:26:22 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ void	u(t_args *lstargs)
 	unsigned int	nbr;
 
 	nbr = va_arg(lstargs->variatic_arg, unsigned int);
-	if (nbr < 0)
-		nbr *= -1;
 	lstargs->printable_arg = ft_itoa_base(nbr, 10);
 }

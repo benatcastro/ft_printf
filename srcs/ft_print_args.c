@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 14:01:51 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/14 20:23:13 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int	ft_print_argument(t_args *lstargs)
 
 	ft_call(ft_getfnc(lstargs), lstargs);
 	ft_print_prefix(lstargs);
+	if (lstargs->precision_type == '.')
+		ft_print_precision(lstargs);
 	i = lstargs->first_params.nbr
-		- ft_strlen(lstargs->printable_arg) + 1;
+		- ft_strlen(lstargs->printable_arg);
 	if (lstargs->first_params.sign != '-')
 	{
-		while (i-- > 0)
+		while (i-- > 0 && i)
 			ft_putchar(' ', lstargs);
 		ft_final_print(lstargs);
 	}
