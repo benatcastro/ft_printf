@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/15 00:29:48 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/16 11:08:51 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_width_print(t_args *lstargs)
 	// 	ft_print_precision(lstargs);
 	i = lstargs->first_params.nbr
 		- ft_strlen(lstargs->printable_arg);
-	if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg))
+	if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && lstargs->first_params.sign != '-')
 		i++;
 	if (lstargs->precision_size > 0)
 		i += j;
@@ -67,7 +67,9 @@ void	ft_width_print(t_args *lstargs)
 
 int	ft_print_argument(t_args *lstargs)
 {
+	//ft_call(test, lstargs);
 	ft_call(ft_getfnc(lstargs), lstargs);
+	//printf("TEST\n");
 	ft_print_prefix(lstargs);
 
 	if (lstargs->first_params.nbr)
