@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/16 12:15:45 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 12:27:33 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,23 @@ void	ft_width_print(t_args *lstargs)
 	int	j;
 	int	arg_len;
 
-	arg_len = ft_strlen(lstargs->printable_arg);
-	j = ft_strlen(lstargs->printable_arg) - lstargs->precision_size;
+	arg_len = (int)ft_strlen(lstargs->printable_arg);
+	j = arg_len - lstargs->precision_size;
 	// 	ft_print_precision(lstargs);
 	i = lstargs->first_params.nbr
-		- ft_strlen(lstargs->printable_arg);
+		- arg_len;
 	if (lstargs->precision_size > 0)
 		i += j;
-	if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && lstargs->first_params.sign != '-')
+	if (lstargs->first_params.nbr > arg_len && lstargs->first_params.sign != '-')
 		i++;
-	// if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && lstargs->first_params.sign != '-')
-	// 	i++;
+	if (lstargs->first_params.nbr > (int)arg_len && lstargs->first_params.sign != '-')
+		i++;
 	if (lstargs->type == 'c' && lstargs->printable_arg[0] == 0)
 		i--;
-	if (lstargs->first_params.nbr < (int)ft_strlen(lstargs->printable_arg) && (lstargs->type == 's' && lstargs->precision_type == '.'))
+	if (lstargs->first_params.nbr < arg_len && (lstargs->type == 's' && lstargs->precision_type == '.'))
 		i++;
-	else if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && (lstargs->type == 's' && lstargs->precision_type == '.'))
+	else if (lstargs->first_params.nbr > arg_len && (lstargs->type == 's' && lstargs->precision_type == '.'))
 		i++;
-	if (lstargs->first_params > ft_strlen(lstargs->printable_arg) && (lstargs->precision_size > ))
 	//printf("I = (%d) J = (%d) PRE SIZE (%d)\n", i, j, lstargs->precision_size);
 	if (lstargs->first_params.sign != '-')
 	{
