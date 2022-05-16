@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 17:05:09 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 20:37:19 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ int	main(void)
 	int i;
 
 	printf("\n\n!!!!!!TEST1!!!!!\n\n");
-	char	*str2 = "%-6s";
+	char	*str2 = "%02.2s";
 	i = printf(str2, "hello");
 	printf("i: %d\n", i);
 	i = ft_printf(str2, "hello");
 	printf("i: %d\n", i);
 
 	printf("\n\n!!!!!!TEST2!!!!!\n\n");
-	char	*str3 = "%4d";
-	i = printf(str3, 12);
+	char	*str3 = "%%";
+	i = printf(str3);
 	printf("i: %d\n", i);
-	i = ft_printf(str3, 12);
+	i = ft_printf(str3);
 	printf("i: %d\n", i);
 
 
@@ -168,7 +168,7 @@ int	main(void)
 
 	printf("\n\n!!!!!!TEST18!!!!!\n\n");
 
-	char	*str18 = "%-8.5i";
+	char	*str18 = "%-10.5i";
 	i = printf(str18, -256);
 	printf("i: %d\n", i);
 	i = ft_printf(str18, -256);
@@ -189,6 +189,32 @@ int	main(void)
 	printf("i: %d\n", i);
 	i = ft_printf(str20, -8431);
 	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST21!!!!!\n\n");
+
+	char	*str21 = "%3.s";
+	i = printf(str21, NULL);
+	printf("i: %d\n", i);
+	i = ft_printf(str21, NULL);
+	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST22!!!!!\n\n");
+
+	char	*str22 = "%7s%-5s";
+	i = printf(str22, "hello", "world");
+	printf("i: %d\n", i);
+	i = ft_printf(str22, "hello", "world");
+	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST23!!!!!\n\n");
+
+	char	*str23 = "%3.s";
+	i = printf(str23, NULL);
+	printf("i: %d\n", i);
+	i = ft_printf(str23, NULL);
+	printf("i: %d\n", i);
+	// ft_printf("%0d", 1);
+	// printf("%0d", 1);
 	 //printf("i: %d\n", i);
 	// printf("-----THIS TEST ARE GONNA BE DONE BY PRINTF-----\n");
 	// printf("LONG_MAX==%p\nLONG_MIN=%p\nULONG_MAX=%p\n-ULONG_MAX=%p\n", LONG_MAX, LONG_MIN, ULONG_MAX, -ULONG_MAX);
@@ -196,3 +222,4 @@ int	main(void)
 	// ft_printf("LONG_MIN=%p\nULONG_MAX=%p\n", LONG_MIN, ULONG_MAX);
 	// return 1;
 }
+

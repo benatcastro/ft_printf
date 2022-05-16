@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:04:19 by bena              #+#    #+#             */
-/*   Updated: 2022/05/16 09:17:53 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 20:09:21 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_args	*ft_getflags(t_args *lstargs)
 	size_t	i;
 
 	i = -1;
-	ft_get_first_param(lstargs);
+	ft_get_field_width(lstargs);
 	while (lstargs->arg[++i])
 	{
 		if (!is_in_prefix(lstargs->arg[i]))

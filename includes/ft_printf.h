@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 15:37:02 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 20:07:20 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ typedef struct t_nbr_data
 	int			i;
 	int			check;
 }	t_nbr_data;
+//validate args
+int		ft_validate_arg(const char *s);
 //field width
-void	ft_get_first_param(t_args *lstargs);
+void	ft_get_field_width(t_args *lstargs);
 //prints
 void	c(t_args *lstargs);
 void	s(t_args *lstargs);
@@ -80,12 +82,12 @@ void	ft_call(void (*f)(t_args*), t_args *lstargs);
 int		ft_print_argument(t_args *lstargs);
 //getting flags
 t_args	*ft_getflags(t_args *lstargs);
-int		is_in_types(char s);
 int		ft_is_arg(const char *s);
 void	ft_get_prefix(t_args *lstargs, char c);
 void	ft_get_precision(t_args *lstargs, char *arg);
 void	ft_get_precision_size(t_args *lstargs, char *str);
 //checking flags
+int		is_in_types(char s);
 int		is_in_prefix(char c);
 int		is_in_precision(char c);
 //utils
@@ -97,4 +99,5 @@ void	test(t_args *lstargs);
 int		ft_printf(const char *str, ...);
 int		ft_to_positive(int nbr);
 void	ft_final_print(t_args *lstargs);
+int		get_i_int(t_args *lstargs, int i, int arg_len, int p_size);
 #endif //
