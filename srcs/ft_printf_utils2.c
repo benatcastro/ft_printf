@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 14:18:16 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 12:10:08 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	ft_reset_list(t_args *lstargs)
 	lstargs->valid_arg = 0;
 	lstargs->write_pre = 0;
 	lstargs->null_case = 0;
+	lstargs->first_params.nbr = 0;
+	lstargs->first_params.sign = 0;
 	free(lstargs->arg);
 	free(lstargs->printable_arg);
 }

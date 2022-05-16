@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 09:04:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/16 11:08:51 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 12:15:45 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,26 @@ void	ft_width_print(t_args *lstargs)
 {
 	int	i;
 	int	j;
+	int	arg_len;
 
+	arg_len = ft_strlen(lstargs->printable_arg);
 	j = ft_strlen(lstargs->printable_arg) - lstargs->precision_size;
 	// 	ft_print_precision(lstargs);
 	i = lstargs->first_params.nbr
 		- ft_strlen(lstargs->printable_arg);
-	if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && lstargs->first_params.sign != '-')
-		i++;
 	if (lstargs->precision_size > 0)
 		i += j;
+	if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && lstargs->first_params.sign != '-')
+		i++;
+	// if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && lstargs->first_params.sign != '-')
+	// 	i++;
+	if (lstargs->type == 'c' && lstargs->printable_arg[0] == 0)
+		i--;
+	if (lstargs->first_params.nbr < (int)ft_strlen(lstargs->printable_arg) && (lstargs->type == 's' && lstargs->precision_type == '.'))
+		i++;
+	else if (lstargs->first_params.nbr > (int)ft_strlen(lstargs->printable_arg) && (lstargs->type == 's' && lstargs->precision_type == '.'))
+		i++;
+	if (lstargs->first_params > ft_strlen(lstargs->printable_arg) && (lstargs->precision_size > ))
 	//printf("I = (%d) J = (%d) PRE SIZE (%d)\n", i, j, lstargs->precision_size);
 	if (lstargs->first_params.sign != '-')
 	{

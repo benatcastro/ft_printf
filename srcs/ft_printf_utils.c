@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:14:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/14 23:48:45 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/16 11:46:33 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putstr(char *s, t_args *lstargs)
 		write(1, "(null)", 6);
 		lstargs->args_size += 6;
 	}
-	else if ((s[0] == 0 && s[1] == 0) && lstargs->type == 'c')
+	if (s[0] == 0 && lstargs->type == 'c')
 		ft_putchar(0, lstargs);
 	i = 0;
 	while (s[i] != '\0')

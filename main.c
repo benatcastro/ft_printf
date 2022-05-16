@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 11:35:36 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 12:12:52 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,8 @@ int	main(void)
 	i = ft_printf(str3, 12);
 	printf("i: %d\n", i);
 
+
 	printf("\n\n!!!!!!TEST3!!!!!\n\n");
-
-	char	*str4 = "%-7.5s";
-	i = printf(str4, "yolo");
-	printf("i: %d\n", i);
-	i = ft_printf(str4, "yolo");
-	printf("i: %d\n", i);
-
-	printf("\n\n!!!!!!TEST4!!!!!\n\n");
 
 	char	*str = "%-4c";
 	i = 0;
@@ -61,15 +54,36 @@ int	main(void)
 	i = ft_printf(str, 'x');
 	printf("i: %d\n", i);
 
-	printf("\n\n!!!!!!TEST5!!!!!\n\n");
+	printf("\n\n!!!!!!TEST4!!!!!\n\n");
 
-	char	*str5 = " %-1c %-2c %-3c";
+	char	*str5 = " (%-1c) (%-2c) (%-3c)";
 	i = 0;
 	i = printf(str5, '0', 0, '1');
 	printf("i: %d\n", i);
 	i = ft_printf(str5, '0', 0, '1');
 	printf("i: %d\n", i);
 
+	printf("\n\n!!!!!!TEST5!!!!!\n\n");
+
+	char	*str4 = "%-7.5s";
+	i = printf(str4, "yolo");
+	printf("i: %d\n", i);
+	i = ft_printf(str4, "yolo");
+	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST6!!!!!\n\n");
+
+	char	*str6 = "%7.7s";
+	i = printf(str6, "hello");
+	printf("i: %d\n", i);
+	i = ft_printf(str6, "hello");
+	printf("i: %d\n", i);
+
+	char	*str7 = "%7.7s%7.7s";
+	i = printf(str7, "hello", "world");
+	printf("i: %d\n", i);
+	i = ft_printf(str7, "hello", "world");
+	printf("i: %d\n", i);
 	 //printf("i: %d\n", i);
 	// printf("-----THIS TEST ARE GONNA BE DONE BY PRINTF-----\n");
 	// printf("LONG_MAX==%p\nLONG_MIN=%p\nULONG_MAX=%p\n-ULONG_MAX=%p\n", LONG_MAX, LONG_MIN, ULONG_MAX, -ULONG_MAX);
