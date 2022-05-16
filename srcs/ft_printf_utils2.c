@@ -6,25 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:47:59 by bena              #+#    #+#             */
-/*   Updated: 2022/05/16 12:10:08 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 16:26:33 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-void	ft_s_null_case(t_args *lstargs)
-{
-	char	*aux;
-	int		i;
-
-	i = 0;
-	while (is_in_types(lstargs->arg[i]))
-		i++;
-	aux = ft_substr(lstargs->arg, 0, i);
-	lstargs->null_len = ft_atoi(aux);
-	lstargs->null_case = 1;
-	free(aux);
-}
 
 char	*ft_itoa_base(unsigned long long nbr, int base)
 {
@@ -78,9 +64,23 @@ void	ft_reset_list(t_args *lstargs)
 	lstargs->precision_size = 0;
 	lstargs->valid_arg = 0;
 	lstargs->write_pre = 0;
-	lstargs->null_case = 0;
+	lstargs->sign = 0;
 	lstargs->first_params.nbr = 0;
 	lstargs->first_params.sign = 0;
 	free(lstargs->arg);
 	free(lstargs->printable_arg);
+}
+
+void	ft_final_print(t_args *lstargs)
+{
+	if (lstargs->precision_type == '-')
+	{
+		ft_putstr(lstargs->printable_arg, lstargs);
+		ft_print_precision(lstargs);
+	}
+	else
+	{
+		ft_print_precision(lstargs);
+		ft_putstr(lstargs->printable_arg, lstargs);
+	}
 }

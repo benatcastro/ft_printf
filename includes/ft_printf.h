@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/13 13:42:19 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 15:37:02 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct t_args
 {
 	char		*arg;
 	char		*printable_arg;
+	char		sign;
 	int			arg_len;
 	char		type;
 	char		prefix;
@@ -40,8 +41,6 @@ typedef struct t_args
 	int			write_pre;
 	int			args_size;
 	int			valid_arg;
-	int			null_case;
-	int			null_len;
 	t_f_width	first_params;
 	va_list		variatic_arg;
 }	t_args;
@@ -90,7 +89,6 @@ void	ft_get_precision_size(t_args *lstargs, char *str);
 int		is_in_prefix(char c);
 int		is_in_precision(char c);
 //utils
-void	ft_s_null_case(t_args *lstargs);
 void	ft_putchar(unsigned char c, t_args *lstargs);
 void	ft_putstr(char *s, t_args *lstargs);
 char	*ft_trim_arg(char *str);

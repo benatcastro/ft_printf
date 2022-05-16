@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 20:24:39 by bena              #+#    #+#             */
-/*   Updated: 2022/05/13 05:40:04 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/16 14:27:12 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	s(t_args *lstargs)
 		s = ft_strdup("(null)");
 	}
 	if (!s[0])
-		ft_s_null_case(lstargs);
+		s[0] = 0;
 	lstargs->printable_arg = s;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:30:00 by bena              #+#    #+#             */
-/*   Updated: 2022/05/14 21:32:00 by bena             ###   ########.fr       */
+/*   Updated: 2022/05/16 15:47:49 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ void	ft_print_precision(t_args *lstargs)
 	int	i;
 
 	i = 0;
-	if (lstargs->null_case == 1)
-	{
-		while (lstargs->null_len-- > 0)
-			ft_putchar(' ', lstargs);
-	}
-	else if (lstargs->precision_type == '.' && lstargs->type == 's')
+	if (lstargs->precision_type == '.' && lstargs->type == 's')
 		ft_call(ft_print_dot, lstargs);
 	else if (lstargs->precision_type == '.')
 		ft_call(ft_print_zero, lstargs);
@@ -39,7 +34,12 @@ void	ft_print_zero(t_args *lstargs)
 {
 	lstargs->precision_char = '0';
 	if (lstargs->printable_arg[0] == '-' && lstargs->precision_type == '.')
+	{
+		lstargs->sign = '-';
 		lstargs->precision_size++;
+		if (lstargs->first_params.nbr == 0)
+			lstargs->first_params.nbr--;
+	}
 	lstargs->write_pre = (ft_strlen(lstargs->printable_arg)
 			- lstargs->precision_size) * -1;
 	ft_print_sign(lstargs);
