@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:37:08 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 20:42:58 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/18 08:37:44 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ft_get_first_param(t_args *lstargs)
 
 void	ft_get_field_width(t_args *lstargs)
 {
-	int	i;
+	//int	i;
 	int	j;
 
 	j = -1;
@@ -72,7 +72,8 @@ void	ft_get_field_width(t_args *lstargs)
 	}
 	else if (lstargs->arg[0] != '-' && lstargs->arg[j] == 's')
 	{
-		ft_get_first_param(lstargs);
-		i = lstargs->first_params.nbr - ft_strlen(lstargs->printable_arg);
+		printf("Other print\n");
+		// ft_get_first_param(lstargs);
+		// i = lstargs->first_params.nbr - ft_strlen(lstargs->printable_arg);
 	}
 }

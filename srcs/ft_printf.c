@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 10:57:36 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 18:13:54 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/18 08:39:54 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	ft_printf(const char *s, ...)
 			if (ft_validate_arg(arg) == 0)
 				break ;
 			free (arg);
-			ft_print_argument(ft_getflags(lstargs));
+			ft_getflags(lstargs);
+			ft_print_argument(lstargs);
 			i += ft_is_arg (&str[i + 1]);
 		}
 		else
