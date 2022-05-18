@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:37:08 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/18 08:37:44 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/18 13:57:06 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static char	*ft_trim_minus(char	*arg, t_args *lstargs)
 	aux = ft_substr(arg, 1, ft_strlen(arg));
 	free(arg);
 	return (aux);
-
 }
 
 static void	ft_get_first_param(t_args *lstargs)
@@ -35,6 +34,7 @@ static void	ft_get_first_param(t_args *lstargs)
 	{
 		full_arg = ft_trim_minus(full_arg, lstargs);
 	}
+	//printf("full arg (%s)\n", full_arg);
 	while ((!is_in_precision(full_arg[i]) && full_arg[i] != '.')
 		|| ft_isdigit(full_arg[i]))
 		i++;
@@ -52,9 +52,10 @@ static void	ft_get_first_param(t_args *lstargs)
 
 void	ft_get_field_width(t_args *lstargs)
 {
-	//int	i;
+	int	i;
 	int	j;
 
+	i = 0;
 	j = -1;
 	while (lstargs->arg[++j])
 	{
@@ -62,18 +63,12 @@ void	ft_get_field_width(t_args *lstargs)
 				&& lstargs->arg[j] != '-')
 			&& lstargs->arg[j] != '.' && lstargs->arg[j] != 's')
 			return ;
+		else if (!is_in_types(lstargs->arg[j + 1]))
+		{
+			lstargs->first_params.check = 1;
+		}
 		else if (lstargs->arg[j] == '.' || lstargs->arg[j] == 's')
 			break ;
 	}
-	if (lstargs->arg[j] == '.')
-	{
-		ft_get_first_param(lstargs);
-		return ;
-	}
-	else if (lstargs->arg[0] != '-' && lstargs->arg[j] == 's')
-	{
-		printf("Other print\n");
-		// ft_get_first_param(lstargs);
-		// i = lstargs->first_params.nbr - ft_strlen(lstargs->printable_arg);
-	}
+	ft_get_first_param(lstargs);
 }

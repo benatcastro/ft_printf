@@ -6,30 +6,31 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 09:39:43 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 20:37:19 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/18 14:55:00 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-// int main(void)
-// {
-// 	t_args	*lstargs;
-// 	lstargs = malloc(sizeof(t_args));
-// 	lstargs->arg_len = 0;
-// 	int nbr = 1230;
-// 	char	*test = ft_itoa_hexa(nbr);
-// 	printf("hexa: (%s)\n", test);
-// 	printf("OG: (%x)\n", nbr);
-// 	free(test);
-// 	free(lstargs);
-// }
+int main1(void)
+{
+	int i;
+
+		printf("\n\n!!!!!!TEST24!!!!!\n\n");
+
+	char	*str24 = "%5%";
+	i = printf(str24);
+	printf("i: %d\n", i);
+	i = ft_printf(str24);
+	printf("i: %d\n", i);
+}
 
 int	main(void)
 {
 
 	int i;
 
+	printf("i: %d\n", i);
 	printf("\n\n!!!!!!TEST1!!!!!\n\n");
 	char	*str2 = "%02.2s";
 	i = printf(str2, "hello");
@@ -192,7 +193,7 @@ int	main(void)
 
 	printf("\n\n!!!!!!TEST21!!!!!\n\n");
 
-	char	*str21 = "%3.s";
+	char	*str21 = "%-3.s";
 	i = printf(str21, NULL);
 	printf("i: %d\n", i);
 	i = ft_printf(str21, NULL);
@@ -208,10 +209,34 @@ int	main(void)
 
 	printf("\n\n!!!!!!TEST23!!!!!\n\n");
 
-	char	*str23 = "%3.s";
-	i = printf(str23, NULL);
+	char	*str23 = "%10.5i";
+	i = printf(str23, -216);
 	printf("i: %d\n", i);
-	i = ft_printf(str23, NULL);
+	i = ft_printf(str23, -216);
+	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST24!!!!!\n\n");
+
+	char	*str24 = "%-23s";
+	i = printf(str24, NULL);
+	printf("i: %d\n", i);
+	i = ft_printf(str24, NULL);
+	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST25!!!!!\n\n");
+
+	char	*str25 = "%5%";
+	i = printf(str25);
+	printf("i: %d\n", i);
+	i = ft_printf(str25);
+	printf("i: %d\n", i);
+
+	printf("\n\n!!!!!!TEST26!!!!!\n\n");
+
+	char	*str26 = "%23s";
+	i = printf(str26, NULL);
+	printf("i: %d\n", i);
+	i = ft_printf(str26, NULL);
 	printf("i: %d\n", i);
 	// ft_printf("%0d", 1);
 	// printf("%0d", 1);

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/16 20:07:20 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/18 11:46:26 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct t_f_width
 {
 	int			nbr;
 	char		sign;
+	int			check;
 }	t_f_width;
 
 typedef struct t_args
