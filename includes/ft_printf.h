@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:48:19 by becastro          #+#    #+#             */
-/*   Updated: 2022/05/18 11:46:26 by becastro         ###   ########.fr       */
+/*   Updated: 2022/05/21 11:27:57 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct t_nbr_data
 int		ft_validate_arg(const char *s);
 //field width
 void	ft_get_field_width(t_args *lstargs);
+void	ft_width_print(t_args *lstargs);
 //prints
 void	c(t_args *lstargs);
 void	s(t_args *lstargs);
@@ -101,4 +102,5 @@ int		ft_printf(const char *str, ...);
 int		ft_to_positive(int nbr);
 void	ft_final_print(t_args *lstargs);
 int		get_i_int(t_args *lstargs, int i, int arg_len, int p_size);
-#endif //
+void	ft_iterate(char *str, t_args *lstargs);
+#endif
